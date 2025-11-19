@@ -1,0 +1,73 @@
+---
+const {name, img, degrees, role, email, blurb} = Astro.props;
+---
+
+<div class="bio-container">
+	<div class="bio-header">
+		<img src={img} alt={name} class="bio-image" />
+		<div class="bio-info">
+			<h2>{name}{degrees}</h2>
+			<!--<p class="degrees">{degrees}</p> -->
+			<p class="role"><b>{role}</b></p>
+			<p class="email">
+				<a href={`mailto:${email}`}>{email}</a>
+			</p>
+		</div>
+	</div>
+	{blurb && (
+		<div class="bio-blurb">
+			{blurb}
+		</div>
+	)}
+</div>
+
+<style>
+	.bio-container {
+		margin-bottom: 1.5rem;
+	}
+	.bio-header {
+		display: flex;
+		gap: 1.5rem;
+		align-items: flex-start;
+		background-color: var(--accent-dark);
+		padding: 1.5rem;
+	}
+	.bio-image {
+		width: 150px;
+		height: 200px;
+		object-fit: cover;
+		flex-shrink: 0;
+	}
+	.bio-info {
+		flex: 1;
+	}
+	.bio-info h2 {
+		margin: 0 0 0.5rem 0;
+		color: white;
+	}
+	.bio-info p {
+		margin: 0.25rem 0;
+	}
+	.degrees {
+		color: white;
+		font-size: 0.95em;
+	}
+	.role {
+		color: white;
+		font-weight: 700;
+	}
+	.email a {
+		text-decoration: none;
+		color: var(--accent);
+	}
+	.email a:hover {
+		text-decoration: underline;
+	}
+	.bio-blurb {
+		background-color: white;
+		border: 1px solid var(--accent-dark);
+		padding: 1rem;
+		line-height: 1.6;
+		color: rgb(var(--gray-dark));
+	}
+</style>

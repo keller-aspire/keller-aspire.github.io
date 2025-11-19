@@ -1,0 +1,54 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import heroBg from '../assets/jh_hosp.jpg';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>Contact Us</h1>
+			<hr>
+			<div class="box">
+				<h3>Steve Keller</h3>
+				<ul>
+					<li>Email: <a href="mailto:steven.keller@jhmi.edu">steven.keller@jhmi.edu</a></li>
+					<li>Phone: (123) 456-7890</li>
+					<li>Address: Traylor Research Building 928, 733 N Broadway, Baltimore, MD 21205</li>
+				</ul>
+			</div>
+
+			<div class="box">
+				<h3>Jonathan Hopkin</h3>
+				<ul>
+					<li>Email: <a href="mailto:jonathan.hopkin@jhmi.edu">jonathan.hopkin@jhmi.edu</a></li>
+					<li>Phone: (123) 456-7890</li>
+					<li>Address: 1234 Research Blvd, Baltimore, MD 21205</li>
+				</ul>
+			</div>
+			<h4>How to Find the Lab</h4>
+			<p>
+				The Traylor Building can be accessed from the Miller Research Building via the entrance 
+				on Broadway. Once inside, walk down the hallway to the elevators, and proceed to the third floor. 
+				Walk through the cafe to the second set of elevators, and take them to the ninth floor.
+			</p>
+		</main>
+		<Footer />
+	</body>
+	<style>
+		.box {
+			border: 2px solid var(--accent-dark);
+			padding: 1rem;
+			margin-bottom: 1rem;
+			background-color: white;
+		}
+		
+	</style>
+</html>

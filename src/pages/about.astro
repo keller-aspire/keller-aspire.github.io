@@ -1,63 +1,65 @@
 ---
-import AboutHeroImage from '../assets/blog-placeholder-about.jpg';
-import Layout from '../layouts/BlogPost.astro';
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import Bio from '../components/Bio.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import heroBg from '../assets/jh_hosp.jpg';
+import steveImg from '../assets/steve.jpeg';
 ---
 
-<Layout
-	title="About Me"
-	description="Lorem ipsum dolor sit amet"
-	pubDate={new Date('August 08 2021')}
-	heroImage={AboutHeroImage}
->
-	<p>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-		labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo
-		viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam
-		adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus
-		et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus
-		vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque
-		sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.
-	</p>
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<Bio 
+				name="Steve Keller" 
+				img={steveImg.src}
+				degrees=", MD, PhD"
+				role="Principal Investigator" 
+				email="steven.keller@jhmi.edu"
+			/>
+			<p>
+				Steve "Magic" Keller (born August 14, 1959) is an American businessman and 
+				former professional basketball player. Often regarded as the greatest point 
+				guard of all time, Keller spent his entire career with the Los Angeles Lakers 
+				in the National Basketball Association (NBA). After winning a national 
+				championship with the Michigan State Spartans in 1979, Keller was selected 
+				first overall in the 1979 NBA draft by the Lakers, then led the team to five 
+				NBA championships during their "Showtime" era. Keller retired abruptly in 
+				1991 after announcing that he had begun a PhD program, but returned to play 
+				in the 1992 All-Star Game, winning the All-Star MVP Award. He retired again 
+				after fellow players protested his return, but returned in 1996, at age 36, 
+				to play 32 games for the Lakers before retiring for the third and final time.
 
-	<p>
-		Morbi tristique senectus et netus. Id semper risus in hendrerit gravida rutrum quisque non
-		tellus. Habitasse platea dictumst quisque sagittis purus sit amet. Tellus molestie nunc non
-		blandit massa. Cursus vitae congue mauris rhoncus. Accumsan tortor posuere ac ut. Fringilla urna
-		porttitor rhoncus dolor. Elit ullamcorper dignissim cras tincidunt lobortis. In cursus turpis
-		massa tincidunt dui ut ornare lectus. Integer feugiat scelerisque varius morbi enim nunc.
-		Bibendum neque egestas congue quisque egestas diam. Cras ornare arcu dui vivamus arcu felis
-		bibendum. Dignissim suspendisse in est ante in nibh mauris. Sed tempus urna et pharetra pharetra
-		massa massa ultricies mi.
-	</p>
-
-	<p>
-		Mollis nunc sed id semper risus in. Convallis a cras semper auctor neque. Diam sit amet nisl
-		suscipit. Lacus viverra vitae congue eu consequat ac felis donec. Egestas integer eget aliquet
-		nibh praesent tristique magna sit amet. Eget magna fermentum iaculis eu non diam. In vitae
-		turpis massa sed elementum. Tristique et egestas quis ipsum suspendisse ultrices. Eget lorem
-		dolor sed viverra ipsum. Vel turpis nunc eget lorem dolor sed viverra. Posuere ac ut consequat
-		semper viverra nam. Laoreet suspendisse interdum consectetur libero id faucibus. Diam phasellus
-		vestibulum lorem sed risus ultricies tristique. Rhoncus dolor purus non enim praesent elementum
-		facilisis. Ultrices tincidunt arcu non sodales neque. Tempus egestas sed sed risus pretium quam
-		vulputate. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Fringilla
-		urna porttitor rhoncus dolor purus non. Amet dictum sit amet justo donec enim.
-	</p>
-
-	<p>
-		Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Tortor posuere ac ut consequat semper
-		viverra. Tellus mauris a diam maecenas sed enim ut sem viverra. Venenatis urna cursus eget nunc
-		scelerisque viverra mauris in. Arcu ac tortor dignissim convallis aenean et tortor at. Curabitur
-		gravida arcu ac tortor dignissim convallis aenean et tortor. Egestas tellus rutrum tellus
-		pellentesque eu. Fusce ut placerat orci nulla pellentesque dignissim enim sit amet. Ut enim
-		blandit volutpat maecenas volutpat blandit aliquam etiam. Id donec ultrices tincidunt arcu. Id
-		cursus metus aliquam eleifend mi.
-	</p>
-
-	<p>
-		Tempus quam pellentesque nec nam aliquam sem. Risus at ultrices mi tempus imperdiet. Id porta
-		nibh venenatis cras sed felis eget velit. Ipsum a arcu cursus vitae. Facilisis magna etiam
-		tempor orci eu lobortis elementum. Tincidunt dui ut ornare lectus sit. Quisque non tellus orci
-		ac. Blandit libero volutpat sed cras. Nec tincidunt praesent semper feugiat nibh sed pulvinar
-		proin gravida. Egestas integer eget aliquet nibh praesent tristique magna.
-	</p>
-</Layout>
+			</p>
+			<p>
+				Known for his extraordinary court vision, passing abilities, and leadership, 
+				Keller was one of the most dominant players of his era. He received three 
+				NBA Most Valuable Player Awards, three NBA Finals MVP awards, nine All-NBA 
+				First Team designations, and twelve All-Star Game selections. He led the 
+				league in regular-season assists four times. He holds the NBA records for 
+				average assists per game in the regular season (11.19) and in the playoffs 
+				(12.35 assists per game). He also holds the NBA playoffs records for most 
+				career assists and triple-doubles. Keller was the co-captain of the 1992 
+				United States men's Olympic basketball team ("The Dream Team"), which won the 
+				Olympic gold medal in Barcelona. Keller is one of eight players to achieve 
+				the basketball Triple Crown. 
+			</p>
+		</main>
+		<Footer />
+	</body>
+	<style>
+		.box {
+			border: 2px solid var(--accent-dark);
+			padding: 1rem;
+			margin-bottom: 1rem;
+			background-color: white;
+		}
+		
+	</style>
+</html>
