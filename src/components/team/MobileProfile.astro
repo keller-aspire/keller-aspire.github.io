@@ -1,0 +1,146 @@
+---
+import { Github, Linkedin, Mail, Stethoscope, GraduationCap, School, University, Hospital} from 'lucide-astro';
+import { Image } from 'astro:assets';
+interface Props {
+    entry: any; // You might want to type this properly with your collection type
+}
+
+const { entry } = Astro.props;
+---
+
+<div class="lg:hidden bg-white sm:p-6">
+    <div class="flex gap-6 sm:gap-8 items-center h-48 sm:h-56">
+        <div class="flex flex-col justify-between min-w-0 flex-1 h-full">
+            <div>
+                <h2 class="text-h5 font-bold text-body-base mb-1">{entry.data.name}{entry.data.degree && `, ${entry.data.degree}`}</h2>
+                <p class="text-small text-body-base mb-3">{entry.data.jobTitle}</p>
+                
+                {
+                    entry.data.email && (
+                        <a
+                            href={`mailto:${entry.data.email}`}
+                            class="flex items-center gap-2 text-body-base hover:text-primary transition-colors text-small truncate"
+                        >
+                            <Mail size={18} strokeWidth={1.25} />
+                            <span class="truncate">{entry.data.email}</span>
+                        </a>
+                    )
+                }
+                {
+                    entry.data.undergrad && (
+                        <p
+                            class="flex items-center gap-2 text-body-base text-small truncate"
+                        >
+                            <GraduationCap size={18} strokeWidth={1.25} />
+                            <span class="truncate">{entry.data.undergrad}</span>
+                        </p>
+                    )
+                }
+                {
+                    entry.data.grad && (
+                        <p
+                            class="flex items-center gap-2 text-body-base text-small truncate"
+                        >
+                            <School size={18} strokeWidth={1.25} />
+                            <span class="truncate">{entry.data.grad}</span>
+                        </p>
+                    )
+                }
+                {
+                    entry.data.phd && (
+                        <p
+                            class="flex items-center gap-2 text-body-base text-small truncate"
+                        >
+                            <University size={18} strokeWidth={1.25} />
+                            <span class="truncate">{entry.data.phd}</span>
+                        </p>
+                    )
+                }
+                {
+                    entry.data.medschool && (
+                        <p
+                            class="flex items-center gap-2 text-body-base text-small truncate"
+                        >
+                            <Stethoscope size={18} strokeWidth={1.25} />
+                            <span class="truncate">{entry.data.medschool}</span>
+                        </p>
+                    )
+                }
+                {
+                    entry.data.residency && (
+                        <p
+                            class="flex items-center gap-2 text-body-base text-small truncate"
+                        >
+                            <Hospital size={18} strokeWidth={1.25} />
+                            <span class="truncate">{entry.data.residency}</span>
+                        </p>
+                    )
+                }
+            </div>
+
+            <div class="flex flex-col gap-2 mt-3">
+                {
+                    entry.data.github && (
+                        <a
+                            href={entry.data.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="flex items-center gap-2 text-body-base hover:text-primary transition-colors text-small"
+                            aria-label="GitHub Profile"
+                        >
+                            <Github size={18} strokeWidth={1.25} />
+                            {entry.data.githubUsername && <span>{entry.data.githubUsername}</span>}
+                        </a>
+                    )
+                }
+                {
+                    entry.data.linkedin && (
+                        <a
+                            href={entry.data.linkedin}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="flex items-center gap-2 text-body-base hover:text-primary transition-colors text-small"
+                            aria-label="LinkedIn Profile"
+                        >
+                            <Linkedin size={18} strokeWidth={1.25} />
+                            {entry.data.linkedinUsername && <span>{entry.data.linkedinUsername}</span>}
+                        </a>
+                    )
+                }
+            </div>
+        </div>
+
+        <div class="h-full aspect-[3/4] shrink-0">
+            {
+                (() => {
+                    const rawAlt = entry.data.altImg ?? entry.data.headshot2;
+                    const altImg = rawAlt && typeof rawAlt === 'string' ? null : rawAlt;
+                    return (
+                        <div class="relative w-full h-full border-4 border-primary-dark group overflow-hidden">
+                            <Image
+                                class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 ease-in-out translate-x-0 group-hover:-translate-x-full z-10"
+                                src={entry.data.headshot}
+                                alt={entry.data.name}
+                                width={896}
+                                height={1280}
+                                quality={80}
+                                format="webp"
+                            />
+                            {altImg && (
+                                <Image
+                                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 ease-in-out translate-x-full group-hover:translate-x-0 z-20"
+                                    src={altImg}
+                                    alt={`${entry.data.name} alternate`}
+                                    width={896}
+                                    height={1280}
+                                    quality={80}
+                                    format="webp"
+                                />
+                            )}
+                        </div>
+                    );
+                })()
+            }
+        </div>
+    </div>
+</div>

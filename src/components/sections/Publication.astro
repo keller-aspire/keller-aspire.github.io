@@ -1,0 +1,127 @@
+---
+import Eyebrow from '@components/ui/Eyebrow.astro';
+import { getPaddingClass, getBackgroundColor, getTextColor } from '@utils/styleUtils';
+import type { PaddingSize, ThemeColor } from '@utils/styleUtils';
+import { Image } from 'astro:assets';
+
+interface Content {
+    eyebrow?: string;
+    headline: string;
+    subheadline?: string;
+    description?: string;
+    link?: {
+        text: string;
+        url: string;
+    }
+    image?: {
+        src: string | any;
+        alt?: string;
+    };
+}
+
+export interface Props {
+    content: Content;
+    // Layout props
+    imagePosition?: 'left' | 'right';
+    background?: ThemeColor;
+    paddingTop?: PaddingSize;
+    paddingBottom?: PaddingSize;
+    padding?: PaddingSize;
+}
+
+const {
+    content,
+    // Layout props
+    imagePosition = 'right',
+    background = 'base',
+    paddingTop,
+    paddingBottom,
+    padding,
+} = Astro.props;
+
+const { eyebrow, headline, subheadline, description, link, image} = content;
+const src = image?.src;
+const alt = image?.alt || '';
+
+const paddingClass = getPaddingClass({ padding, paddingTop, paddingBottom });
+const bgColor = getBackgroundColor(background);
+const textColor = getTextColor(background);
+---
+
+<section class:list={['relative', bgColor, paddingClass]}>
+    <div class="site-container px-4">
+        <div
+            class:list={[
+                'grid gap-16 items-center max-w-6xl mx-auto',
+                image ? 'md:grid-cols-2' : 'md:grid-cols-1',
+                image && imagePosition === 'left' ? 'md:grid-cols-[1fr_1fr]' : '',
+            ]}
+        >
+            {/* Image Side */}
+            {
+                image && imagePosition === 'left' && (
+                    <div class="relative aspect-[4/3] max-w-md mx-auto overflow-hidden border-4 border-primary-dark">
+                        <Image
+                            src={src}
+                            {alt}
+                            width={400}
+                            height={300}
+                            class="w-full h-full object-cover"
+                            quality={80}
+                            format="webp"
+                        />
+                    </div>
+                )
+            }
+
+            {/* Content Side */}
+            <div class:list={[textColor]}>
+                {eyebrow && <Eyebrow text={eyebrow} background={background} />}
+                <h4 class={textColor} data-aos="fade-up">{headline}</h4>
+                {
+                    subheadline && (
+                        <h5 class:list={['mt-4 text-h5', textColor]} data-aos="fade-up">
+                            {subheadline}
+                        </h5>
+                    )
+                }
+                {
+                    description && (
+                        <p class:list={['mt-6 text-base opacity-90', textColor]} data-aos="fade-up">
+                            {description}
+                        </p>
+                    )
+                }
+                {
+                    link && (
+                        <a href={link.url} class="mt-6 inline-block" data-aos="fade-up">
+                            {link.text}
+                        </a>
+                    )
+                }
+
+            </div>
+
+            {/* Image Side (right position) */}
+            {
+                image && imagePosition === 'right' && (
+                    <div
+                        class="relative aspect-[4/3] max-w-md mx-auto overflow-hidden border-4 border-primary-dark"
+                        data-aos="fade-up"
+                        data-aos-delay="100"
+                    >
+                        <Image
+                            src={src}
+                            {alt}
+                            width={400}
+                            height={300}
+                            class="w-full h-full object-cover"
+                            quality={80}
+                            format="webp"
+                        />
+                    </div>
+                )
+            }
+        </div>
+    </div>
+</section>

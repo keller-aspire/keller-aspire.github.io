@@ -1,81 +1,205 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
-import heroBg from '../assets/jh_hosp.jpg';
+import Layout from '@layouts/Layout.astro';
+import Hero from '@components/sections/Hero.astro';
+import SplitPanel from '@components/sections/SplitPanel.astro';
+import Stats from '@components/sections/Stats.astro';
+import { featureLists } from '@data/features';
+import { statsLists } from '@data/stats';
+import { logoLists } from '@data/logos';
+import CtaBanner from '@components/sections/CtaBanner.astro';
+import Faqs from '@components/sections/Faqs.astro';
+import { faqLists } from '@data/faqs';
+import Carousel from '@components/sections/Carousel.astro';
+import RecentPosts from '@components/sections/RecentPosts.astro';
+import heroImage from '../assets/images/home/default-hero-2.jpg';
+import styleGuideImage from '../assets/images/home/developer.jpg';
+import heroImage2 from '../assets/images/home/default-hero.jpg';
+
+const seoTitle = "Aspire Lab";
+const seoDescription = "Advanced Systems Physiology, Innovation, & Regenerative Engineering";
+
+const heroContent = {
+    title: 'Innovate. It\'s what we do.',
+    description: 'Redefining the intersection between the bench and the bedside: shaping clinical practice through advanced science, engineering, and design. We aspire to bring healthcare\'s tomorrow to today\'s patients.',
+    buttons: [
+        {
+            text: 'Our Research',
+            link: 'https://github.com/rspisarski/titan-core',
+            target: '_blank'
+        }
+    ],
+    backgroundImage: heroImage,
+    overlayOpacity: 0.2
+}
+
+const carouselSlides = [
+    {
+        title: "Cutting-Edge Research",
+        description: "Pushing the boundaries of science and technology to develop innovative healthcare solutions.",
+        image: heroImage,
+        buttons: [
+            {
+                text: "Learn More",
+                link: "/research",
+                variant: "primary" as const
+            }
+        ]
+    },
+    {
+        title: "Collaborative Innovation",
+        description: "Fostering partnerships across disciplines to drive transformative advancements in medicine.",
+        image: heroImage2,
+        buttons: [
+            {
+                text: "Our Partners",
+                link: "/partners",
+                variant: "primary" as const
+            }
+        ]
+    },
+    {
+        title: "Collaborative Innovation",
+        description: "Fostering partnerships across disciplines to drive transformative advancements in medicine.",
+        image: styleGuideImage,
+        buttons: [
+            {
+                text: "Our Partners",
+                link: "/partners",
+                variant: "primary" as const
+            }
+        ]
+    }
+];
+
+const featuresSection = {
+    eyebrow: "CORE FEATURES",
+    title: "Everything You Need, Nothing You Don't",
+    description: "Titan Core gives you a solid foundation with essential features while staying lightweight and customizable. Start with a clean slate and build exactly what you need without the bloat.",
+    features: featureLists.main.features,
+    button: {
+        text: "View Theme Info",
+        link: "/theme-info",
+        variant: "primary" as const
+    }
+}
+
+const FooterCta = {
+    eyebrow: "Join The Community",
+    title: ' Start Building With Titan Core Today',
+    description: 'Titan Core is open-source and constantly improving. Join our community of developers to contribute, get support, or showcase what you\'ve built.',
+    hideCta: false,
+    button: {
+        text: 'Download Titan Core',
+        link: 'https://github.com/rspisarski/titan-core',
+        target: '_blank'
+    }
+}
+
+const aim1 = {
+    headline: "Research Aim 1",
+    description: "This is where a short description for research aim 1 would go.",
+    image: {
+        src: styleGuideImage,
+        alt: "Featured image"
+    },
+    buttons: [
+        {
+            text: "Read More",
+            link: "/style-guide",
+            variant: "primary" as const
+        }
+    ]
+}
+
+const aim2 = {
+    headline: "Research Aim 2",
+    description: "This is where a short description for research aim 2 would go.",
+    image: {
+        src: styleGuideImage,
+        alt: "Featured image"
+    },
+    buttons: [
+        {
+            text: "Read More",
+            link: "/style-guide",
+            variant: "primary" as const
+        }
+    ]
+}
+
+const aim3 = {
+    headline: "Research Aim 3",
+    description: "This is where a short description for research aim 3 would go.",
+    image: {
+        src: styleGuideImage,
+        alt: "Featured image"
+    },
+    buttons: [
+        {
+            text: "Read More",
+            link: "/style-guide",
+            variant: "primary" as const
+        }
+    ]
+}
+
+const sideBySideStats = {
+    eyebrow: "Stats",
+    title: "Built for Speed and Flexibility",
+    description: "Titan Core is designed with performance and developer experience in mind. Our lightweight theme gives you all the essentials without the bloat, letting you build exactly what you need with impressive speed.",
+    variant: 'side-by-side' as const,
+    stats: statsLists.withContent.stats,
+    content: {
+        title: "Built for Speed and Flexibility",
+        description: "Titan Core is designed with performance and developer experience in mind. Our lightweight theme gives you all the essentials without the bloat, letting you build exactly what you need with impressive speed.",
+        button: {
+            text: "Discover Titan Core",
+            link: "/theme-info",
+            variant: "primary" as const
+        }
+    }
+};
+
+const mainCta = {
+    eyebrow: "Build Blocks",
+    title: "Ready-to-Use Components",
+    description: "Save development time with our pre-built, accessible components. Each one is designed to integrate seamlessly with your projects while maintaining excellent performance.",
+    button: {
+        text: "View All Components",
+        link: "/components",
+        variant: "primary" as const,
+        target: "_self" as const
+    }
+};
+
+
+const logosSection = {
+    eyebrow: "Our Clients",
+    logos: logoLists.main.logos
+}
+
+const faqsSection = {
+    eyebrow: "FAQs",
+    title: 'Frequently Asked Questions',
+    description: 'Find answers to common questions about our platform and services.',
+    faqs: faqLists.main.faqs
+}
+
+const recentPostsSection = {
+    eyebrow: "NEWS",
+    title: "Recent News from ASPIRE Lab",
+    description: "Explore our latest articles on Astro JS development, theme customization tips, and web performance best practices.",
+    button: {
+            text: "View All Posts",
+            link: "/news",
+        variant: "primary" as const
+    }
+}
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<div class="hero" style={`background-image: url(${heroBg.src})`}>
-			<div class="hero-content">
-				<h1>Welcome to Steve Keller's ASPIRE Lab</h1>
-				<p><b>A</b>dvanced <b>S</b>ystems <b>P</b>hysiology, <b>I</b>nnovation, and <b>R</b>egenerative <b>E</b>ngineering</p>
-				<hr>
-				<p>Johns Hopkins Medicine Division of Pulmonary and Critical Care</p>
-			</div>
-		</div>
-		<main>
-			<p>
-				The ASPIRE Lab at Johns Hopkins Medicine is dedicated to advancing the 
-				field of swine aeronautics. "When pigs fly" will soon be more than just 
-				a idiom; it will be a reality.
-			</p>
-			
-		</main>
-		<Footer />
-	</body>
-	<style>
-		.hero {
-			position: relative;
-			width: 100%;
-			height: 30rem;
-			margin: 0;
-			padding: 0;
-			background-size: cover;
-			background-position: center;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-		}
-		.hero::before {
-			content: '';
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			background-color: rgba(0, 0, 0, 0.4);
-			z-index: 1;
-		}
-		.hero-content {
-			position: relative;
-			z-index: 2;
-			background-color: rgba(255, 255, 255, 1);
-			padding: 2rem;
-			width: 720px;
-			max-width: calc(100% - 2em);
-			margin: auto;
-			text-align: center;
-			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-		}
-		.hero-content h1 {
-			margin-top: 0;
-			font-size: 3rem;
-			color: var(--accent-dark);
-		}
-		.hero-content hr {
-			border: 0;
-			height: 1px;
-			background-color: var(--accent);
-			margin: 1rem auto;
-			width: 60%;
-		}
-	</style>
-</html>
+<Layout footerCta={FooterCta} title={seoTitle} description={seoDescription}>
+    <Carousel slides={carouselSlides}/>
+    <CtaBanner content={mainCta} variant="contained" background="light" paddingBottom="base" />
+    <Stats content={sideBySideStats} background='dark' padding="base"/>
+    <Faqs content={faqsSection} background="base" padding="base" />
+</Layout>

@@ -1,0 +1,61 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import InnerHero from '../../components/sections/InnerHero.astro';
+import heroImage from '../../assets/images/home/default-hero.jpg';
+import Publication from '../../components/sections/Publication.astro';
+import styleGuideImage from '../../assets/images/home/developer.jpg';
+
+// Hero content
+const heroContent = {
+    title: 'Publications',
+    backgroundImage: heroImage,
+    description: 'ASPIRE Lab Publications',
+    overlayOpacity: 0.8,
+};
+
+const pub1 = {
+    headline: "Publication Title 1",
+    description: "This is where a summary of the abstract would go.",
+    link: {
+        text: "https://doi.org/10.1016/j.device.2024.100514",
+        url: "https://www.sciencedirect.com/science/article/pii/S2666998624004149?via%3Dihub"
+    },
+    image: {
+        src: styleGuideImage,
+        alt: "Publication Image"
+    },
+}
+
+const pub2 = {
+    headline: "Publication Title 2",
+    description: "This is where a summary of the abstract would go.",
+    link: {
+        text: "https://doi.org/10.1016/j.device.2024.100514",
+        url: "https://www.sciencedirect.com/science/article/pii/S2666998624004149?via%3Dihub"
+    },
+}
+---
+
+<Layout title="Our Vision">
+    <InnerHero content={heroContent} />
+
+    <section class="py-small">
+        <div class="site-container--small mx-auto px-8 prose">
+            <h1>ASPIRE Lab Publications</h1>
+        </div>
+    </section>
+
+    {/* You can add other sections here between markdown content */}
+    {/* Example:
+    <SomeOtherSection />
+    */}
+    <Publication content={pub1} imagePosition="right" background="light" padding="xs" />
+
+    <section class="py-small">
+        <div class="site-container--small mx-auto px-8 prose">
+            <h1>Prior Publications</h1>
+        </div>
+    </section>
+    <Publication content={pub2} imagePosition="right" background="light" paddingTop="xs" paddingBottom="large" />
+
+</Layout>

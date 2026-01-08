@@ -1,0 +1,183 @@
+---
+import { Github, Linkedin, Mail, Stethoscope, GraduationCap, School, University, Hospital} from 'lucide-astro';
+import { getCollection, render } from 'astro:content';
+import { getPaddingClass } from '@utils/styleUtils';
+import type { PaddingSize } from '@utils/styleUtils';
+import { Image } from 'astro:assets';
+
+interface Props {
+    padding?: PaddingSize;
+    paddingTop?: PaddingSize;
+    paddingBottom?: PaddingSize;
+    category?: 'PI' | 'Postdoc' | 'PhD' | 'Staff' | 'Past';
+    title?: string;
+}
+
+const { padding, paddingTop, paddingBottom, category, title } = Astro.props;
+const paddingClass = getPaddingClass({ padding, paddingTop, paddingBottom });
+
+const teamMembers = await getCollection('team', ({ data }) => {
+    const isPublished = data.publish !== false;
+    const matchesCategory = category ? data.category === category : true;
+    return isPublished && matchesCategory;
+});
+
+// Sort team members by order
+const sortedTeamMembers = teamMembers.sort((a, b) => a.data.order - b.data.order);
+
+// Pre-render each member's markdown so we can include it below the card
+const renderedMembers = await Promise.all(
+    sortedTeamMembers.map(async (member) => {
+        const rendered = await render(member);
+        return { member, Content: rendered?.Content ?? null };
+    })
+);
+---
+
+<section class:list={['relative', paddingClass]}>
+    <div class="bg-primary-dark text-white inline-block px-12 py-4">
+        <h2>{title}</h2>
+    </div>
+    <div class="site-container mx-auto px-4 mt-8 justify-center">
+        <div class="grid grid-cols-2 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 xl:gap-x-8 xl:gap-y-14">
+            {
+                renderedMembers.map(({ member, Content }, index) => (
+                    <div
+                        class="flex flex-col bg-primary"
+                        data-aos="fade-up"
+                        data-aos-delay={index * 100}
+                        data-aos-duration="800"
+                    >
+                        <div class="flex flex-col md:flex-row gap-4 items-start bg-white p-4">
+                            <div class="relative overflow-hidden group md:w-1/2">
+                                <span class="absolute inset-0 -mt-12 h-400 w-1/2 translate-x-[250%] rotate-12 bg-white opacity-20 group-hover:transition-all group-hover:duration-300 ease-out group-hover:translate-x-[-250%] z-10" />
+                                {member.data.headshot ? (
+                                    (() => {
+                                        const rawAlt = member.data.altImg ?? member.data.headshot2;
+                                        const altImg = rawAlt && typeof rawAlt === 'string' ? null : rawAlt;
+                                        return (
+                                            <div class="relative w-full aspect-[3/4] overflow-hidden">
+                                                <Image
+                                                    src={member.data.headshot}
+                                                    alt=""
+                                                    width={896}
+                                                    height={1280}
+                                                    quality={80}
+                                                    format="webp"
+                                                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 ease-in-out translate-x-0 group-hover:-translate-x-full z-10"
+                                                    loading="eager"
+                                                    decoding="async"
+                                                />
+                                                {altImg && (
+                                                    <Image
+                                                        src={altImg}
+                                                        alt=""
+                                                        width={896}
+                                                        height={1280}
+                                                        quality={80}
+                                                        format="webp"
+                                                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 ease-in-out translate-x-full group-hover:translate-x-0 z-20"
+                                                        loading="eager"
+                                                        decoding="async"
+                                                    />
+                                                )}
+                                            </div>
+                                        );
+                                    })()
+                                ) : (
+                                    <div class="w-full aspect-[3/4] bg-gray-200 flex items-center justify-center">
+                                        <span class="text-gray-400">No Image</span>
+                                    </div>
+                                )}
+                            </div>
+
+                            <div class="flex-1">
+                                <a href={`/team/${member.id}`} class="group">
+                                    <h3 class="text-h5 font-medium transition-colors duration-500 group-hover:text-primary group-hover:underline">
+                                        {member.data.name}{member.data.degree && `, ${member.data.degree}`}
+                                    </h3>
+                                </a>
+                                <p class="text-xsmall text-body-base">{member.data.jobTitle}</p>
+
+                                {member.data.email && (
+                                    <a
+                                        href={`mailto:${member.data.email}`}
+                                        class="flex items-center gap-2 text-xsmall hover:text-primary transition-colors"
+                                    >
+                                        <Mail size={14} strokeWidth={1.25} />
+                                        <span class="break-all">{member.data.email}</span>
+                                    </a>
+                                )}
+
+                                {member.data.github && (
+                                    <a
+                                        href={member.data.github}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        class="flex items-center gap-2 text-xsmall hover:text-primary transition-colors"
+                                    >
+                                        <Github size={14} strokeWidth={1.25} />
+                                        <span class="break-all">{member.data.githubUsername}</span>
+                                    </a>
+                                )}
+
+                                {member.data.linkedin && (
+                                    <a
+                                        href={member.data.linkedin}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        class="flex items-center gap-2 text-xsmall hover:text-primary transition-colors"
+                                    >
+                                        <Linkedin size={14} strokeWidth={1.25} />
+                                        <span class="break-all">{member.data.linkedinUsername}</span>
+                                    </a>
+                                )}
+
+                                {member.data.undergrad && (
+                                    <p class="flex items-center gap-2 text-xsmall text-body-base">
+                                        <GraduationCap size={14} strokeWidth={1.25} />
+                                        <span class="break-all">{member.data.undergrad}</span>
+                                    </p>
+                                )}
+
+                                {member.data.grad && (
+                                    <p class="flex items-center gap-2 text-xsmall text-body-base">
+                                        <School size={14} strokeWidth={1.25} />
+                                        <span class="break-all">{member.data.grad}</span>
+                                    </p>
+                                )}
+
+                                {member.data.phd && (
+                                    <p class="flex items-center gap-2 text-xsmall text-body-base">
+                                        <University size={14} strokeWidth={1.25} />
+                                        <span class="break-all">{member.data.phd}</span>
+                                    </p>
+                                )}
+
+                                {member.data.medschool && (
+                                    <p class="flex items-center gap-2 text-xsmall text-body-base">
+                                        <Stethoscope size={14} strokeWidth={1.25} />
+                                        <span class="break-all">{member.data.medschool}</span>
+                                    </p>
+                                )}
+
+                                {member.data.residency && (
+                                    <p class="flex items-center gap-2 text-xsmall text-body-base">
+                                        <Hospital size={14} strokeWidth={1.25} />
+                                        <span class="break-all">{member.data.residency}</span>
+                                    </p>
+                                )}
+                            </div>
+                        </div>
+
+                        {Content && (
+                            <div class="m-4 prose prose-sm text-white text-xsmall [&_h1]:text-xl [&_h2]:text-lg [&_h3]:text-base [&_h4]:text-sm">
+                                <Content />
+                            </div>
+                        )}
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</section>

@@ -1,62 +1,159 @@
-# Astro Starter Kit: Blog
+# Titan Core - Modern Astro Theme
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-```sh
-npm create astro@latest -- --template blog
+**Titan Core** is a high-performance, feature-rich theme for Astro JS, designed for modern websites, blogs, and portfolios. With beautiful UI components, multiple theme options, and a focus on performance, Titan Core helps you build stunning websites quickly.
+
+[Live Demo](https://titan-core.netlify.app)
+
+## ✨ Features
+
+- 🎨 **Multiple Theme Options** - Choose from various color themes
+- 📱 **Fully Responsive** - Looks great on all devices
+- 🚀 **Performance Focused** - Optimized for speed and SEO
+- 📝 **Blog Ready** - Complete blog functionality with categories and pagination
+- 🔍 **SEO Optimized** - Meta tags, Open Graph, Twitter Cards, and sitemap
+- 🧩 **Component-Based** - Modular architecture for easy customization
+- 🎭 **Animation Ready** - Integrated AOS (Animate On Scroll) for smooth animations
+- 📊 **Stats Section** - Display your metrics with beautiful stat components
+- 🤝 **Team Grid** - Showcase your team members
+- 🔄 **Flexible Layouts** - Hero sections, feature grids, split panels, and more
+- 📋 **FAQ Component** - Easy-to-use FAQ accordion
+- 📞 **Contact Components** - Ready-to-use contact information display
+- 🏢 **Logo Showcase** - Display partner or client logos
+- 🔘 **Modern UI Components** - Buttons, forms, cards, and more
+
+## 🚀 Quick Start
+
+```bash
+# Create a new project with this theme
+npm create astro@latest -- --template rspisarski/titan-core
+
+# or clone this repository
+git clone https://github.com/rspisarski/titan-core.git my-website
+cd my-website
+npm install
+npm run dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 📁 Project Structure
 
-Features:
-
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and OpenGraph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-├── public/
+```
+/
+├── public/             # Static assets
+│   └── favicon.ico
 ├── src/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   └── pages/
-├── astro.config.mjs
-├── README.md
-├── package.json
-└── tsconfig.json
+│   ├── assets/         # Images and other assets
+│   ├── components/     # UI components
+│   │   ├── blog/       # Blog-specific components
+│   │   ├── forms/      # Form components
+│   │   ├── icons/      # Icon components
+│   │   ├── sections/   # Page section components
+│   │   ├── team/       # Team components
+│   │   └── ui/         # Basic UI components
+│   ├── content/        # Content collections (easily editable markdown)
+│   ├── data/           # Configuration and data files
+│   ├── layouts/        # Page layouts
+│   ├── pages/          # Page routes (edit page layouts and content in HTLM/Astro)
+│   ├── styles/         # Global styles
+│   └── utils/          # Utility functions
+└── package.json
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## ⚙️ Configuration
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+Customize your site by editing the configuration files in the `src/data/` directory:
 
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
+- `config.ts` - Site-wide configuration including company info and SEO settings
+- `menu.ts` - Navigation menu structure
+- `features.ts` - Feature section content
+- `faqs.ts` - FAQ content
+- `logos.ts` - Partner/client logos
+- `stats.ts` - Statistics display data
+- `categories.ts` - Blog categories
 
-Any static assets, like images, can be placed in the `public/` directory.
+## 🎨 Theming
 
-## 🧞 Commands
+Titan Core comes with 10 beautiful pre-configured themes inspired by Greek mythology. Developers can choose a single theme for their site by editing the `themeSetting` object in `src/data/config.ts`:
 
-All commands are run from the root of the project, from a terminal:
+```typescript
+export const themeSetting = {
+  theme: 'zeus' // Choose one of the 10 available themes
+}
+```
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+### Available Themes:
 
-## 👀 Want to learn more?
+1. `zeus` - Sky & Thunder theme
+2. `poseidon` - Ocean & Seas theme
+3. `hades` - Underworld theme
+4. `apollo` - Sun & Light theme
+5. `artemis` - Moon & Hunt theme
+6. `ares` - War & Fire theme
+7. `athena` - Wisdom theme
+8. `hermes` - Speed theme
+9. `dionysus` - Festivity theme
+10. `demeter` - Nature theme
 
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+### Removing the Theme Switcher
 
-## Credit
+By default, Titan Core includes a theme switcher component that allows users to change themes. For projects where you want to use a single consistent theme, you can remove the theme switcher by:
 
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+1. Open `src/layouts/Layout.astro`
+2. Remove or comment out the ThemeSwitcher import:
+   ```astro
+   // Remove this line
+   import ThemeSwitcher from "../components/ThemeSwitcher.astro";
+   ```
+3. Remove the ThemeSwitcher component from the body:
+   ```astro
+   <body data-theme={theme}>
+     <Header />
+     <slot />
+     <Footer footerCta={footerCta} />
+     <!-- Remove this line -->W
+     <ThemeSwitcher />
+     
+     <script>
+       import AOS from 'aos';
+       AOS.init({
+         duration: 800,
+         once: true,
+       });
+     </script>
+   </body>
+   ```
+
+This will ensure your site uses only the theme specified in your configuration.
+
+## 📝 Content Management
+
+Titan Core uses Astro's content collections for blog posts and other content. Add your content to the `src/content/` directory.
+
+## 🧩 Components
+
+Titan Core includes a wide range of components:
+
+- **Layout Components**: Hero, Features, Split Panel, CTA Banner, etc.
+- **UI Components**: Buttons, Forms, Cards, etc.
+- **Blog Components**: Post cards, category pills, etc.
+- **Team Components**: Team grid, member cards, etc.
+
+## 🛠️ Commands
+
+| Command                | Action                                           |
+| :--------------------- | :----------------------------------------------- |
+| `npm install`          | Install dependencies                            |
+| `npm run dev`          | Start local dev server at `localhost:4321`      |
+| `npm run build`        | Build your production site to `./dist/`          |
+| `npm run preview`      | Preview your build locally, before deploying     |
+| `npm run astro ...`    | Run CLI commands like `astro add`, `astro check` |
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 🙏 Credits
+
+- Built with [Astro](https://astro.build)
+- Animations by [AOS](https://michalsnik.github.io/aos/)
+- Icons from [Lucide](https://lucide.dev)

@@ -1,0 +1,218 @@
+---
+import Button from '@components/ui/Button.astro';
+import { Image } from 'astro:assets';
+
+interface Slide {
+    title?: string;
+    description?: string;
+    buttons?: {
+        text: string;
+        link: string;
+        variant?: 'primary' | 'secondary' | 'ghostLight' | 'ghostDark';
+        target?: string;
+    }[];
+    image?: string | any;
+}
+
+interface Props {
+    slides: Slide[];
+    waitTime?: number;
+    overlayOpacity?: number;
+}
+
+const { slides = [], waitTime = 5000, overlayOpacity = 0.3 } = Astro.props;
+const uid = `carousel-${Math.random().toString(36).slice(2, 9)}`;
+---
+
+<section id={uid} class="header-offset relative overflow-hidden min-h-[80vh] md:min-h-[80vh] mt-16">
+    {slides.length > 0 && (
+        <>
+            {/* Slides */}
+            {slides.map((slide, i) => (
+                <div 
+                    class={`carousel-slide absolute inset-0 w-full h-full transition-opacity duration-700 ${i === 0 ? 'opacity-100' : 'opacity-0'}`}
+                    data-slide={i}
+                >
+                    {/* Image */}
+                    {typeof slide.image === 'string' ? (
+                        <img 
+                            src={slide.image} 
+                            alt={slide.title ?? ''} 
+                            class="w-full h-full object-cover" 
+                        />
+                    ) : (
+                        <Image
+                            src={slide.image}
+                            alt={slide.title ?? ''}
+                            width={1920}
+                            height={1080}
+                            class="w-full h-full object-cover"
+                            quality={70}
+                            format="webp"
+                        />
+                    )}
+                    
+                    {/* Overlay */}
+                    <div 
+                        class="absolute inset-0 pointer-events-none" 
+                        style={`background-color: rgba(0,0,0,${overlayOpacity});`}
+                    ></div>
+
+                    {/* Content */}
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="site-container mx-auto px-4 text-center">
+                            {slide.title && (
+                                <h1 class="text-white text-balance">{slide.title}</h1>
+                            )}
+                            {slide.description && (
+                                <p class="text-white mt-2 text-balance">{slide.description}</p>
+                            )}
+                            {slide.buttons && slide.buttons.length > 0 && (
+                                <div class="flex justify-center flex-wrap gap-4 mt-8">
+                                    {slide.buttons.map((button) => (
+                                        <Button
+                                            href={button.link}
+                                            target={button.target || '_self'}
+                                            variant={button.variant || 'primary'}
+                                        >
+                                            {button.text}
+                                        </Button>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                </div>
+            ))}
+
+            {/* Navigation Arrows */}
+            <button 
+                class="carousel-prev absolute left-4 top-1/2 -translate-y-1/2 z-50 text-white opacity-50 hover:opacity-100 transition-opacity"
+                aria-label="Previous slide"
+            >
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+            </button>
+            <button 
+                class="carousel-next absolute right-4 top-1/2 -translate-y-1/2 z-50 text-white opacity-50 hover:opacity-100 transition-opacity"
+                aria-label="Next slide"
+            >
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </button>
+
+            {/* Dots */}
+            <div class="absolute left-1/2 -translate-x-1/2 bottom-6 z-50 flex gap-2">
+                {slides.map((_, i) => (
+                    <button 
+                        class={`carousel-dot w-3 h-3 rounded-full transition-all ${i === 0 ? 'bg-white w-8' : 'bg-white/50'}`}
+                        data-index={i}
+                        aria-label={`Go to slide ${i + 1}`}
+                    ></button>
+                ))}
+            </div>
+        </>
+    )}
+</section>
+
+<script define:vars={{ uid, waitTime }}>
+    const carousel = document.getElementById(uid);
+    if (!carousel) {
+        console.error('Carousel not found');
+    } else {
+        const slides = carousel.querySelectorAll('.carousel-slide');
+        const dots = carousel.querySelectorAll('.carousel-dot');
+        const prevBtn = carousel.querySelector('.carousel-prev');
+        const nextBtn = carousel.querySelector('.carousel-next');
+        
+        let currentIndex = 0;
+        let autoplayTimer = null;
+
+        function showSlide(index) {
+            // Hide all slides
+            slides.forEach(slide => {
+                slide.classList.remove('opacity-100');
+                slide.classList.add('opacity-0');
+                slide.style.pointerEvents = 'none';
+            });
+            
+            // Update dots
+            dots.forEach(dot => {
+                dot.classList.remove('bg-white', 'w-8');
+                dot.classList.add('bg-white/50');
+            });
+            
+            // Show current slide
+            slides[index].classList.remove('opacity-0');
+            slides[index].classList.add('opacity-100');
+            slides[index].style.pointerEvents = 'auto';
+            
+            // Update current dot
+            dots[index].classList.remove('bg-white/50');
+            dots[index].classList.add('bg-white', 'w-8');
+            
+            currentIndex = index;
+        }
+
+        function nextSlide() {
+            const next = (currentIndex + 1) % slides.length;
+            showSlide(next);
+        }
+
+        function prevSlide() {
+            const prev = (currentIndex - 1 + slides.length) % slides.length;
+            showSlide(prev);
+        }
+
+        function startAutoplay() {
+            stopAutoplay();
+            if (slides.length > 1) {
+                autoplayTimer = setInterval(nextSlide, waitTime);
+            }
+        }
+
+        function stopAutoplay() {
+            if (autoplayTimer) {
+                clearInterval(autoplayTimer);
+                autoplayTimer = null;
+            }
+        }
+
+        // Event listeners
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                nextSlide();
+                startAutoplay();
+            });
+        }
+
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                prevSlide();
+                startAutoplay();
+            });
+        }
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                showSlide(index);
+                startAutoplay();
+            });
+        });
+
+        // Pause on hover
+        carousel.addEventListener('mouseenter', stopAutoplay);
+        carousel.addEventListener('mouseleave', startAutoplay);
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') prevSlide();
+            if (e.key === 'ArrowRight') nextSlide();
+        });
+
+        // Start autoplay
+        startAutoplay();
+    }
+</script>

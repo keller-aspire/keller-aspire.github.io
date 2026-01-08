@@ -1,0 +1,36 @@
+---
+import { getCollection } from 'astro:content';
+import { newsSetting } from '../../data/config';
+import PaginatedNewsLayout from '../../components/news/PaginatedNewsLayout.astro';
+export const prerender = true;
+
+// Get current page from URL, default to 1
+const currentPage = parseInt(Astro.url.searchParams.get('page') || '1');
+
+// Get all posts without any filtering
+const allPosts = await getCollection('news');
+
+// Then apply filters if needed
+const filteredPosts = allPosts.filter((post) => {
+    return import.meta.env.DEV || post.data.publish !== false;
+});
+
+// Sort posts by date
+const sortedPosts = filteredPosts.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
+
+// Calculate pagination
+const totalPosts = sortedPosts.length;
+const totalPages = Math.ceil(totalPosts / newsSetting.postsPerPage);
+const start = (currentPage - 1) * newsSetting.postsPerPage;
+const end = start + newsSetting.postsPerPage;
+const paginatedPosts = sortedPosts.slice(start, end);
+---
+
+<PaginatedNewsLayout
+    posts={paginatedPosts}
+    {currentPage}
+    {totalPages}
+    baseUrl="/news"
+    title="News"
+    subtitle="Latest articles and news from the team"
+/>

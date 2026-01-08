@@ -1,0 +1,42 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection, getEntry, render } from 'astro:content';
+import InnerHero from '../../components/sections/InnerHero.astro';
+import heroImage from '../../assets/images/home/default-hero.jpg';
+
+// Get research-area markdown files using getEntry
+const p1Entry = await getEntry('areas', 'p1');
+const p2Entry = await getEntry('areas', 'p2');
+
+const { Content: P1Content } = await render(p1Entry);
+const { Content: P2Content } = await render(p2Entry);
+
+// Hero content
+const heroContent = {
+    title: 'Research Areas',
+    backgroundImage: heroImage,
+    description: 'ASPIRE Lab Research Areas',
+    overlayOpacity: 0.8,
+};
+---
+
+<Layout title="Research Areas">
+    <InnerHero content={heroContent} />
+
+    <section class="py-small">
+        <div class="site-container--small mx-auto px-8 prose">
+            <P1Content />
+        </div>
+    </section>
+
+    {/* You can add other sections here between markdown content */}
+    {/* Example:
+    <SomeOtherSection />
+    */}
+
+    <section class="py-small">
+        <div class="site-container--small mx-auto px-8 prose">
+            <P2Content />
+        </div>
+    </section>
+</Layout>

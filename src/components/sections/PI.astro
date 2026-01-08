@@ -1,0 +1,80 @@
+---
+import { getCollection, getEntry, render } from 'astro:content';
+import { getPaddingClass } from '@utils/styleUtils';
+import type { PaddingSize } from '@utils/styleUtils';
+import { Image } from 'astro:assets';
+import DesktopProfile from '@components/team/DesktopProfile.astro';
+import MobileProfile from '@components/team/MobileProfile.astro';
+import { Github, Linkedin, Mail } from 'lucide-astro';
+
+interface Props {
+    padding?: PaddingSize;
+    paddingTop?: PaddingSize;
+    paddingBottom?: PaddingSize;
+    title?: string;
+    contentFile?: string;
+}
+
+const { padding, paddingTop, paddingBottom, title, contentFile } = Astro.props;
+const paddingClass = getPaddingClass({ padding, paddingTop, paddingBottom });
+
+const teamMembers = await getCollection('team', ({ data }) => {
+    const isPublished = data.publish !== false;
+    const isPI = data.category === 'PI';
+    return isPublished && isPI;
+});
+
+// Sort team members by order
+const sortedTeamMembers = teamMembers.sort((a, b) => a.data.order - b.data.order);
+
+// Get markdown content and profile from the same file if provided
+let Content;
+let profile: any = null;
+if (contentFile) {
+    const [collection, slug] = contentFile.split('/');
+    const entry = await getEntry(collection as any, slug);
+    if (entry) {
+        // use the same entry for profile data and rendered markdown
+        profile = entry;
+        const rendered = await render(entry);
+        Content = rendered.Content;
+    }
+} else {
+    // fallback to first PI in collection if available
+    profile = sortedTeamMembers[0] || null;
+}
+---
+
+<section class:list={['relative', paddingClass]}>
+    {title && (
+        <div class="bg-primary-dark text-white inline-block px-8 py-4 mb-8">
+            <h2>{title}</h2>
+        </div>
+    )}
+    <div class="flex justify-center site-container mx-auto px-4">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 w-full mx-auto lg:mx-large">
+            {/* PI Profile - 1/4 width */}
+            <div class="col-span-full lg:col-span-1 bg-white order-first lg:order-none">
+                {
+                    (() => {
+                        const member = profile ?? sortedTeamMembers[0];
+                        if (!member) return null;
+                        return (
+                            <div class="p-6">
+                                <MobileProfile entry={member} />
+                                <DesktopProfile entry={member} />
+                            </div>
+                        );
+                    })()
+                }
+            </div>
+            
+            {/* Text Content - 1/2 width */}
+            {Content && (
+                <div class="col-span-full lg:col-span-2 prose order-last lg:order-none">
+                    <Content />
+                </div>
+            )}
+        </div>
+    </div>
+</section>
