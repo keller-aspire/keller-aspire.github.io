@@ -1,0 +1,33 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '@layouts/Layout.astro';
+import InnerHero from '@components/sections/InnerHero.astro';
+import heroImage from '@assets/images/home/default-hero.jpg';
+
+export async function getStaticPaths() {
+  const areaEntries = await getCollection('areas');
+  return areaEntries.map(entry => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const heroContent = {
+  title: entry.data.title,
+  backgroundImage: heroImage,
+  description: entry.data.subtitle || 'ASPIRE Lab Research',
+  overlayOpacity: 0.8,
+};
+---
+
+<Layout title={entry.data.title} description={`Research area: ${entry.data.title}`}>
+  <InnerHero content={heroContent} />
+
+  <section class="py-small">
+    <article class="site-container--small mx-auto px-8 max-w-none">
+      <Content />
+    </article>
+  </section>
+</Layout>

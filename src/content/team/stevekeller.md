@@ -1,12 +1,13 @@
 ---
 name: "Steve Keller"
 category: "PI"
-headshot: "./images/zeus.jpg"
-altImg: "./images/hades.jpg"
-degree: "M.D., Ph.D."
-medschool: "Stanford SOM M.D. (2006)"
-phd: "MIT Ph.D. (2000)"
-residency: "Mass General Residency"
+headshot: "./images/steve1.jpg"
+altImg: "./images/zeus.jpg"
+degree: "MD, PhD"
+medschool: "Stanford (2006)"
+phd: "MIT (2000)"
+residency: "Mass General"
+fellowship: "Johns Hopkins"
 jobTitle: "Principal Investigator"
 publish: true
 order: 1
@@ -17,6 +18,7 @@ xSocial: "https://x.com/zeus"
 xSocialUsername: "zeus"
 github: "https://github.com/zeus"
 githubUsername: "zeus"
+hasPage: true
 ---
 
 ## Our Leader

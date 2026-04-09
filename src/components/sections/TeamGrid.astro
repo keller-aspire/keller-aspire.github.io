@@ -1,5 +1,5 @@
 ---
-import { Github, Linkedin, Mail, Stethoscope, GraduationCap, School, University, Hospital} from 'lucide-astro';
+import { Github, Linkedin, Mail, Stethoscope, GraduationCap, School, University, Hospital, Microscope} from 'lucide-astro';
 import { getCollection, render } from 'astro:content';
 import { getPaddingClass } from '@utils/styleUtils';
 import type { PaddingSize } from '@utils/styleUtils';
@@ -9,7 +9,7 @@ interface Props {
     padding?: PaddingSize;
     paddingTop?: PaddingSize;
     paddingBottom?: PaddingSize;
-    category?: 'PI' | 'Postdoc' | 'PhD' | 'Staff' | 'Past';
+    category?: 'PI' | 'Postdoc' | 'PhD' | 'Staff' | 'Current' | 'Past';
     title?: string;
 }
 
@@ -24,14 +24,6 @@ const teamMembers = await getCollection('team', ({ data }) => {
 
 // Sort team members by order
 const sortedTeamMembers = teamMembers.sort((a, b) => a.data.order - b.data.order);
-
-// Pre-render each member's markdown so we can include it below the card
-const renderedMembers = await Promise.all(
-    sortedTeamMembers.map(async (member) => {
-        const rendered = await render(member);
-        return { member, Content: rendered?.Content ?? null };
-    })
-);
 ---
 
 <section class:list={['relative', paddingClass]}>
@@ -41,7 +33,7 @@ const renderedMembers = await Promise.all(
     <div class="site-container mx-auto px-4 mt-8 justify-center">
         <div class="grid grid-cols-2 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 xl:gap-x-8 xl:gap-y-14">
             {
-                renderedMembers.map(({ member, Content }, index) => (
+                sortedTeamMembers.map(({ data: member, id: memberId }, index) => (
                     <div
                         class="flex flex-col bg-primary"
                         data-aos="fade-up"
@@ -51,14 +43,14 @@ const renderedMembers = await Promise.all(
                         <div class="flex flex-col md:flex-row gap-4 items-start bg-white p-4">
                             <div class="relative overflow-hidden group md:w-1/2">
                                 <span class="absolute inset-0 -mt-12 h-400 w-1/2 translate-x-[250%] rotate-12 bg-white opacity-20 group-hover:transition-all group-hover:duration-300 ease-out group-hover:translate-x-[-250%] z-10" />
-                                {member.data.headshot ? (
+                                {member.headshot ? (
                                     (() => {
-                                        const rawAlt = member.data.altImg ?? member.data.headshot2;
+                                        const rawAlt = member.altImg ?? member.headshot2;
                                         const altImg = rawAlt && typeof rawAlt === 'string' ? null : rawAlt;
                                         return (
                                             <div class="relative w-full aspect-[3/4] overflow-hidden">
                                                 <Image
-                                                    src={member.data.headshot}
+                                                    src={member.headshot}
                                                     alt=""
                                                     width={896}
                                                     height={1280}
@@ -92,87 +84,110 @@ const renderedMembers = await Promise.all(
                             </div>
 
                             <div class="flex-1">
-                                <a href={`/team/${member.id}`} class="group">
-                                    <h3 class="text-h5 font-medium transition-colors duration-500 group-hover:text-primary group-hover:underline">
-                                        {member.data.name}{member.data.degree && `, ${member.data.degree}`}
+                                {member.hasPage ? (
+                                    <a href={`/team/${memberId}`} class="group">
+                                        <h3 class="text-h5 font-medium transition-colors duration-500 group-hover:text-primary group-hover:underline">
+                                            {member.name}{member.degree && `, ${member.degree}`}
+                                        </h3>
+                                    </a>
+                                ) : (
+                                    <h3 class="text-h5 font-medium">
+                                        {member.name}{member.degree && `, ${member.degree}`}
                                     </h3>
-                                </a>
-                                <p class="text-xsmall text-body-base">{member.data.jobTitle}</p>
+                                )}
+                                <p class="text-xsmall text-body-base">{member.jobTitle}</p>
 
-                                {member.data.email && (
+                                {member.email && (
                                     <a
-                                        href={`mailto:${member.data.email}`}
+                                        href={`mailto:${member.email}`}
                                         class="flex items-center gap-2 text-xsmall hover:text-primary transition-colors"
                                     >
                                         <Mail size={14} strokeWidth={1.25} />
-                                        <span class="break-all">{member.data.email}</span>
+                                        <span class="break-all">{member.email}</span>
                                     </a>
                                 )}
 
-                                {member.data.github && (
+                                {member.github && (
                                     <a
-                                        href={member.data.github}
+                                        href={member.github}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         class="flex items-center gap-2 text-xsmall hover:text-primary transition-colors"
                                     >
                                         <Github size={14} strokeWidth={1.25} />
-                                        <span class="break-all">{member.data.githubUsername}</span>
+                                        <span class="break-all">{member.githubUsername}</span>
                                     </a>
                                 )}
 
-                                {member.data.linkedin && (
+                                {member.linkedin && (
                                     <a
-                                        href={member.data.linkedin}
+                                        href={member.linkedin}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         class="flex items-center gap-2 text-xsmall hover:text-primary transition-colors"
                                     >
                                         <Linkedin size={14} strokeWidth={1.25} />
-                                        <span class="break-all">{member.data.linkedinUsername}</span>
+                                        <span class="break-all">{member.linkedinUsername}</span>
                                     </a>
                                 )}
 
-                                {member.data.undergrad && (
+                                {member.undergrad && (
                                     <p class="flex items-center gap-2 text-xsmall text-body-base">
                                         <GraduationCap size={14} strokeWidth={1.25} />
-                                        <span class="break-all">{member.data.undergrad}</span>
+                                        <span class="break-all">{member.undergrad}</span>
                                     </p>
                                 )}
 
-                                {member.data.grad && (
+                                {member.grad && (
                                     <p class="flex items-center gap-2 text-xsmall text-body-base">
                                         <School size={14} strokeWidth={1.25} />
-                                        <span class="break-all">{member.data.grad}</span>
+                                        <span class="break-all">{member.grad}</span>
                                     </p>
                                 )}
 
-                                {member.data.phd && (
+                                {member.phd && (
                                     <p class="flex items-center gap-2 text-xsmall text-body-base">
                                         <University size={14} strokeWidth={1.25} />
-                                        <span class="break-all">{member.data.phd}</span>
+                                        <span class="break-all">{member.phd}</span>
                                     </p>
                                 )}
 
-                                {member.data.medschool && (
+                                {member.medschool && (
                                     <p class="flex items-center gap-2 text-xsmall text-body-base">
                                         <Stethoscope size={14} strokeWidth={1.25} />
-                                        <span class="break-all">{member.data.medschool}</span>
+                                        <span class="break-all">{member.medschool}</span>
                                     </p>
                                 )}
 
-                                {member.data.residency && (
+                                {member.residency && (
                                     <p class="flex items-center gap-2 text-xsmall text-body-base">
                                         <Hospital size={14} strokeWidth={1.25} />
-                                        <span class="break-all">{member.data.residency}</span>
+                                        <span class="break-all">{member.residency}</span>
+                                    </p>
+                                )}
+
+                                {member.fellowship && (
+                                    <p class="flex items-center gap-2 text-xsmall text-body-base">
+                                        <Microscope size={14} strokeWidth={1.25} />
+                                        <span class="break-all">{member.fellowship}</span>
                                     </p>
                                 )}
                             </div>
                         </div>
 
-                        {Content && (
-                            <div class="m-4 prose prose-sm text-white text-xsmall [&_h1]:text-xl [&_h2]:text-lg [&_h3]:text-base [&_h4]:text-sm">
-                                <Content />
+                        {(member.researchInterests || member.hobbies) && (
+                            <div class="m-4 text-white text-xsmall space-y-2">
+                                {member.researchInterests && (
+                                    <p>
+                                        <strong>Research Interests:</strong> {member.researchInterests}
+                                    </p>
+                                )}
+
+                                {member.hobbies && (
+                                    <p>
+                                        <strong>Hobbies:</strong> {member.hobbies}
+                                    </p>
+                                )}
                             </div>
                         )}
                     </div>

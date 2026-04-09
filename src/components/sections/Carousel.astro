@@ -24,7 +24,7 @@ const { slides = [], waitTime = 5000, overlayOpacity = 0.3 } = Astro.props;
 const uid = `carousel-${Math.random().toString(36).slice(2, 9)}`;
 ---
 
-<section id={uid} class="header-offset relative overflow-hidden min-h-[80vh] md:min-h-[80vh] mt-16">
+<section id={uid} class="header-offset relative overflow-hidden min-h-[80vh] md:min-h-[80vh]">
     {slides.length > 0 && (
         <>
             {/* Slides */}

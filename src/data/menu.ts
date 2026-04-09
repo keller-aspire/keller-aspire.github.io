@@ -8,15 +8,17 @@ export const headerMenu = [
             { name: 'Components', link: '/components' },
         ]
     },
-    { name: 'About Us', link: '/', showArrow: false,
+    { name: 'About Us', link: '/vision', showArrow: false,
         children: [
             { name: 'Vision', link: '/vision' },
             { name: 'People', link: '/team' },
         ]
     },
-    { name: 'Research', link: '/', showArrow: false,
+    { name: 'Research', link: '/research-areas', showArrow: false,
         children: [
-            { name: 'Research Areas', link: '/research-areas' },
+            { name: 'Mechanisms of Organ Failure', link: '/research-areas/mechanisms' },
+            { name: 'Organ Support Technologies', link: '/research-areas/support' },
+            { name: 'Computational Physiology', link: '/research-areas/physiology' },
             { name: 'Publications', link: '/publications' },
         ]
     },

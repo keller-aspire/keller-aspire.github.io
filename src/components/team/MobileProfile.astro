@@ -1,5 +1,5 @@
 ---
-import { Github, Linkedin, Mail, Stethoscope, GraduationCap, School, University, Hospital} from 'lucide-astro';
+import { Github, Linkedin, Mail, Stethoscope, GraduationCap, School, University, Hospital, Microscope} from 'lucide-astro';
 import { Image } from 'astro:assets';
 interface Props {
     entry: any; // You might want to type this properly with your collection type
@@ -73,6 +73,16 @@ const { entry } = Astro.props;
                         >
                             <Hospital size={18} strokeWidth={1.25} />
                             <span class="truncate">{entry.data.residency}</span>
+                        </p>
+                    )
+                }
+                {
+                    entry.data.fellowship && (
+                        <p
+                            class="flex items-center gap-2 text-body-base text-small truncate"
+                        >
+                            <Microscope size={18} strokeWidth={1.25} />
+                            <span class="truncate">{entry.data.fellowship}</span>
                         </p>
                     )
                 }

@@ -10,6 +10,7 @@ linkedinUsername: "poseidon"
 email: "poseidon@titan-core.com"
 xSocial: "https://x.com/poseidon"
 xSocialUsername: "poseidon"
+hasPage: true
 ---
 
 ## The God of the Sea

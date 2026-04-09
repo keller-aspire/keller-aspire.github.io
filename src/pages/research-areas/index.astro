@@ -1,21 +1,42 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { getCollection, getEntry, render } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import InnerHero from '../../components/sections/InnerHero.astro';
+import Carousel from '../../components/sections/Carousel.astro';
+import Button from '../../components/ui/Button.astro';
 import heroImage from '../../assets/images/home/default-hero.jpg';
+import aboutImage from '../../assets/images/home/about.jpg';
+import developerImage from '../../assets/images/home/developer.jpg';
+import heroeImage from '../../assets/images/home/default-hero-2.jpg';
 
-// Get research-area markdown files using getEntry
-const p1Entry = await getEntry('areas', 'p1');
-const p2Entry = await getEntry('areas', 'p2');
+// Get research-area markdown files
+const areaEntries = await getCollection('areas');
 
-const { Content: P1Content } = await render(p1Entry);
-const { Content: P2Content } = await render(p2Entry);
+// Sort the entries to ensure consistent order
+const sortedAreas = areaEntries.sort((a, b) => {
+  const order = ['mechanisms', 'support', 'physiology'];
+  return order.indexOf(a.id) - order.indexOf(b.id);
+});
+
+// Create carousel slides from research areas
+const carouselSlides = sortedAreas.map((area, index) => ({
+  title: area.data.title,
+  description: area.data.subtitle || `Explore our research in ${area.data.title}`,
+  image: [aboutImage, developerImage, heroeImage][index % 3],
+  buttons: [
+    {
+      text: 'Learn More',
+      link: `/research-areas/${area.id}`,
+      variant: 'primary',
+    }
+  ]
+}));
 
 // Hero content
 const heroContent = {
-    title: 'Research Areas',
+    title: 'Research at the ASPIRE Lab',
     backgroundImage: heroImage,
-    description: 'ASPIRE Lab Research Areas',
+    description: 'Redefining Organ Support Through Integrated Physiology, Engineering, and Intelligent Systems',
     overlayOpacity: 0.8,
 };
 ---
@@ -23,20 +44,29 @@ const heroContent = {
 <Layout title="Research Areas">
     <InnerHero content={heroContent} />
 
-    <section class="py-small">
-        <div class="site-container--small mx-auto px-8 prose">
-            <P1Content />
+    
+
+    <!-- Publications Button Section -->
+    <section class="py-small bg-stone-50">
+        <div class="site-container--small mx-auto px-8">
+            <p class="mb-8 text-lg text-stone-600">
+                At the ASPIRE Lab, our research is organized around three interconnected pillars that together aim to transform how organ failure is understood, supported, and treated. 
+                We integrate <a href="/research-areas/mechanisms">systems-level physiology</a>, <a href="/research-areas/support">advanced engineering</a>, and <a href="/research-areas/physiology">computational modeling</a> to develop mechanistically grounded and data-driven approaches that improve patient outcomes.
+            </p>
+            <p class="mb-8 text-lg text-stone-600">
+                Rather than separating discovery, technology development, and data science, we unify them. 
+                Experimental platforms inform device innovation. Clinical data refine computational models. Engineering solutions are evaluated within physiologic frameworks. Across all efforts, our focus remains constant: to define the physiologic state of failing organs and design technologies and strategies that restore function safely and effectively.
+            </p>
+            </div>
+            <center><Button 
+                href="/publications" 
+                variant="primary"
+                size="md"
+            >View Publications</Button></center>
         </div>
     </section>
 
-    {/* You can add other sections here between markdown content */}
-    {/* Example:
-    <SomeOtherSection />
-    */}
+    <!-- Carousel Section -->
+    <Carousel slides={carouselSlides} />
 
-    <section class="py-small">
-        <div class="site-container--small mx-auto px-8 prose">
-            <P2Content />
-        </div>
-    </section>
 </Layout>

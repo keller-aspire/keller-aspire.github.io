@@ -40,7 +40,8 @@ const team = defineCollection({
             medschool: z.string().optional(),
             phd: z.string().optional(),
             residency: z.string().optional(),
-            category: z.enum(['PI', 'Postdoc', 'PhD', 'Staff', 'Past']),
+            fellowship: z.string().optional(),
+            category: z.enum(['PI', 'Postdoc', 'PhD', 'Staff', 'Current', 'Past']),
             email: z.string().optional(),
             linkedin: z.string().url().optional(),
             linkedinUsername: z.string().optional(),
@@ -50,6 +51,9 @@ const team = defineCollection({
             githubUsername: z.string().optional(),
             order: z.number().default(999),
             publish: z.boolean().default(true),
+            researchInterests: z.string().optional(),
+            hobbies: z.string().optional(),
+            hasPage: z.boolean().default(true),
         }),
 });
 
@@ -78,6 +82,7 @@ const areas = defineCollection({
     loader: glob({ base: './src/content/research-areas', pattern: '**/*.md' }),
     schema: z.object({
         title: z.string().optional(),
+        subtitle: z.string().optional(),
     }),
 });
 

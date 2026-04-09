@@ -10,6 +10,7 @@ linkedinUsername: "hermes"
 email: "hermes@titan-core.com"
 xSocial: "https://x.com/hermes"
 xSocialUsername: "hermes"
+hasPage: true
 ---
 
 ## The God of Trade and Travel

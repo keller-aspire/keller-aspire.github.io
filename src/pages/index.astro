@@ -161,12 +161,12 @@ const sideBySideStats = {
 };
 
 const mainCta = {
-    eyebrow: "Build Blocks",
-    title: "Ready-to-Use Components",
-    description: "Save development time with our pre-built, accessible components. Each one is designed to integrate seamlessly with your projects while maintaining excellent performance.",
+    eyebrow: "Aspire Lab",
+    title: "Our Vision",
+    description: "Our lab is dedicated to advancing critical care through the development of intelligent, automated systems that support life-saving interventions. By integrating physiological modeling, real-time monitoring, and adaptive control strategies, we aim to improve outcomes in trauma, respiratory failure, and acute care settings. Our multidisciplinary research bridges engineering and medicine to deliver innovative, patient-centered solutions.",
     button: {
-        text: "View All Components",
-        link: "/components",
+        text: "Read More",
+        link: "/vision",
         variant: "primary" as const,
         target: "_self" as const
     }
@@ -198,7 +198,7 @@ const recentPostsSection = {
 ---
 
 <Layout footerCta={FooterCta} title={seoTitle} description={seoDescription}>
-    <Carousel slides={carouselSlides}/>
+    <Hero content={heroContent} />
     <CtaBanner content={mainCta} variant="contained" background="light" paddingBottom="base" />
     <Stats content={sideBySideStats} background='dark' padding="base"/>
     <Faqs content={faqsSection} background="base" padding="base" />
