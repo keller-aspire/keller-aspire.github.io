@@ -14,5 +14,5 @@ github: "https://github.com/irw-jh"
 githubUsername: "irw-jh"
 researchInterests: "Developing multimodal models to inform management of lung health"
 hobbies: "Supplying the lab with seasonal gelato flavors"
-hasPage: true
+hasPage: false
 ---

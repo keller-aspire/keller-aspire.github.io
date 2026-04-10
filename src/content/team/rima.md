@@ -17,11 +17,5 @@ researchInterests: "Acute lung injury and ARDS, advanced cardiopulmonary physiol
 hobbies: "Outside the lab, I enjoy traveling, hiking, and spending time with family and friends."
 ---
 
-## Bio
+## About Dr. Rima Othman
 I am a physician-scientist with a focus on acute lung injury and cardiopulmonary physiology in critical illness. My work emphasizes integrative experimental models to better understand early mechanisms of lung injury and shock, with the goal of translating physiologic insights into improved critical care strategies.
-
-## Research Interests
-Acute lung injury and ARDS, advanced cardiopulmonary physiology in critical illness.
-
-## Hobbies & Interests
-Outside the lab, I enjoy traveling, hiking, and spending time with family and friends.
