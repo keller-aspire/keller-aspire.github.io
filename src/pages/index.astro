@@ -1,6 +1,7 @@
 ---
 import Layout from '@layouts/Layout.astro';
 import Hero from '@components/sections/Hero.astro';
+import Button from '@components/ui/Button.astro';
 import SplitPanel from '@components/sections/SplitPanel.astro';
 import Stats from '@components/sections/Stats.astro';
 import { featureLists } from '@data/features';
@@ -19,13 +20,25 @@ const seoTitle = "Aspire Lab";
 const seoDescription = "Advanced Systems Physiology, Innovation, & Regenerative Engineering";
 
 const heroContent = {
+    title: 'ASPIRE Lab: Advanced Systems Physiology and Innovative Regenerative Engineering',
+    description: 'Redefining Patient Care at the Interface of Physiology, Engineering, and Intelligent Systems',
+    buttons: [
+        {
+            text: 'Our Vision',
+            link: '/vision',
+        }
+    ],
+    backgroundImage: heroImage,
+    overlayOpacity: 0.2
+}
+
+const originalHeroContent = {
     title: 'Innovate. It\'s what we do.',
     description: 'Redefining the intersection between the bench and the bedside: shaping clinical practice through advanced science, engineering, and design. We aspire to bring healthcare\'s tomorrow to today\'s patients.',
     buttons: [
         {
             text: 'Our Research',
-            link: 'https://github.com/rspisarski/titan-core',
-            target: '_blank'
+            link: '/research-areas',
         }
     ],
     backgroundImage: heroImage,
@@ -95,49 +108,23 @@ const FooterCta = {
     }
 }
 
-const aim1 = {
-    headline: "Research Aim 1",
-    description: "This is where a short description for research aim 1 would go.",
+const team = {
+    eyebrow: "People",
+    headline: "The ASPIRE Team",
+    description: "The ASPIRE Lab unites researchers, clinicians, and engineers in a collaborative environment to advance the understanding and treatment of organ failure.",
     image: {
         src: styleGuideImage,
-        alt: "Featured image"
+        alt: "ASPIRE Group Photo"
     },
     buttons: [
         {
-            text: "Read More",
-            link: "/style-guide",
+            text: "Our Team",
+            link: "/team",
             variant: "primary" as const
-        }
-    ]
-}
-
-const aim2 = {
-    headline: "Research Aim 2",
-    description: "This is where a short description for research aim 2 would go.",
-    image: {
-        src: styleGuideImage,
-        alt: "Featured image"
-    },
-    buttons: [
+        },
         {
-            text: "Read More",
-            link: "/style-guide",
-            variant: "primary" as const
-        }
-    ]
-}
-
-const aim3 = {
-    headline: "Research Aim 3",
-    description: "This is where a short description for research aim 3 would go.",
-    image: {
-        src: styleGuideImage,
-        alt: "Featured image"
-    },
-    buttons: [
-        {
-            text: "Read More",
-            link: "/style-guide",
+            text: "Join Us",
+            link: "/contact",
             variant: "primary" as const
         }
     ]
@@ -199,7 +186,27 @@ const recentPostsSection = {
 
 <Layout footerCta={FooterCta} title={seoTitle} description={seoDescription}>
     <Hero content={heroContent} />
-    <CtaBanner content={mainCta} variant="contained" background="light" paddingBottom="base" />
-    <Stats content={sideBySideStats} background='dark' padding="base"/>
+    <section class="py-small bg-stone-50">
+        <div class="site-container--small mx-auto px-8">
+            <p class="mb-8 text-lg text-stone-600">
+                The ASPIRE Lab builds next-generation, patient-centered technologies by translating systems physiology into engineered solutions. 
+                Led by a physician-engineer, we create mechanistically grounded and data-driven approaches that move care from reactive rescue to precise, personalized intervention.
+            </p>
+            <p class="mb-8 text-lg text-stone-600">
+                Our work combines translational experimental models, advanced organ support and regenerative engineering, and AI-enabled analysis of high-resolution physiologic monitoring data. 
+                This integrated capability allows us to discover how organs fail and recover — and to design smarter therapies and support systems that measurably improve patient outcomes across healthcare.
+            </p>
+            <p class="mb-8 text-lg text-stone-600">
+                We aspire to transform how organ failure is understood, supported, and ultimately healed.
+            </p>
+            </div>
+            <center><Button 
+                href="/research-areas" 
+                variant="primary"
+                size="md"
+            >Our Research</Button></center>
+        </div>
+    </section>
+    <SplitPanel content={team} imagePosition="right" background="light" padding="base" />
     <Faqs content={faqsSection} background="base" padding="base" />
 </Layout>
