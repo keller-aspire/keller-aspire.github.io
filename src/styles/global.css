@@ -600,6 +600,63 @@ body {
     background-size: var(--s) var(--s);
 }
 
+.tri-background {
+    --hex-size: 40px;
+    --hex-line: 2px;
+    --c1: var(--color-primary);
+    --c2: var(--color-primary-light);
+    
+    background-color: var(--c1);
+    background-image:
+        repeating-linear-gradient(90deg, var(--c2) 0, var(--c2) var(--hex-line), transparent var(--hex-line), transparent var(--hex-size)),
+        repeating-linear-gradient(30deg, var(--c2) 0, var(--c2) var(--hex-line), transparent var(--hex-line), transparent var(--hex-size)),
+        repeating-linear-gradient(150deg, var(--c2) 0, var(--c2) var(--hex-line), transparent var(--hex-line), transparent var(--hex-size));
+    background-position:
+        0 0,
+        0 calc(var(--hex-size) / 2),
+        0 0;
+}
+
+.hex-background {
+    --hex-size: 40px;
+    --hex-stroke: 2px;
+    --c1: var(--color-primary);
+    --c2: var(--color-primary-dark);
+    
+    background-color: var(--c1);
+    background-image: url('data:image/svg+xml,\
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 346.4 300">\
+        <line x1="0" y1="0" x2="86.6" y2="50" style="stroke:%231a3c8c;stroke-width:2" />\
+        <line x1="259.8" y1="50" x2="346.4" y2="0" style="stroke:%231a3c8c;stroke-width:2" />\
+        <line x1="0" y1="200" x2="86.6" y2="150" style="stroke:%231a3c8c;stroke-width:2" />\
+        <line x1="259.8" y1="150" x2="346.4" y2="200" style="stroke:%231a3c8c;stroke-width:2" />\
+        <line x1="0" y1="200" x2="0" y2="300" style="stroke:%231a3c8c;stroke-width:2" />\
+        <line x1="173.2" y1="200" x2="173.2" y2="300" style="stroke:%231a3c8c;stroke-width:2" />\
+        <line x1="346.4" y1="200" x2="346.4" y2="300" style="stroke:%231a3c8c;stroke-width:2" />\
+        <!-- Row 2 - Center hexagon (offset) -->\
+        <polygon points="86.6,50 173.2,0 259.8,50 259.8,150 173.2,200 86.6,150" fill="none" stroke="%231a3c8c" stroke-width="2"/>\
+    </svg>');
+    background-size: calc(var(--hex-size) * 3.33) calc(var(--hex-size) * 2.887);
+    background-repeat: repeat;
+}
+
+.cube-background {
+    --hex-size: 40px;
+    --hex-stroke: 2px;
+    --c1: var(--color-primary);
+    --c2: var(--color-primary-dark);
+    
+    background-color: var(--c1);
+    background-image: url('data:image/svg+xml,\
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 346.4 300">\
+        <path d="M0 0 L173.2 100 L346.4 0 M0 100 L173.2 0 L 346.4 100" style="fill:none;stroke:%231a3c8c;stroke-width:2" />\
+        <path d="M0 200 L86.6 150 L259.8 250 L346.4 200 L259.8 150 L86.6 250Z" style="fill:none;stroke:%231a3c8c;stroke-width:2" />\
+        <path d="M86.6 0 L86.6 150 M259.8 0 L259.8 150 M0 100 L0 300 M173.2 100 L173.2 300 M86.6 250 L86.6 300 M259.8 250 L259.8 300 M346.4 100 L346.4 300" style="fill:none;stroke:%231a3c8c;stroke-width:2" />\
+    </svg>');
+    background-size: calc(var(--hex-size) * 3.33) calc(var(--hex-size) * 2.887);
+    background-repeat: repeat;
+}
+
 /* Style the pre element containing the code */
 pre {
     padding: 1rem;
