@@ -1,7 +1,7 @@
 // src/data/menu.ts
 
 export const headerMenu = [
-    { name: 'Theme Info', link: '/theme-info' , showArrow: false,
+    { name: 'Dev Use', link: '/theme-info' , showArrow: false,
         children: [
             { name: 'News', link: '/news' },
             { name: 'Style Guide', link: '/style-guide' },

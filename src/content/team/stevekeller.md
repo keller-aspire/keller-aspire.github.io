@@ -21,22 +21,13 @@ githubUsername: "zeus"
 hasPage: true
 ---
 
-## Our Leader
+## About Steve Keller
+Dr. Keller joined the Johns Hopkins Division of Pulmonary and Critical Care Medicine in March 2021 as an Assistant Professor and currently attends in the medical intensive care unit and the cardiac surgical intensive care unit. His primary clinical interest is care of patients with critical illness with a focus on advanced mechanical support of respiratory and circulatory failure.  
 
-Zeus leads our organization with the same commanding presence he brings to Mount Olympus. With expertise in strategic leadership and divine intervention, he oversees all major decisions and ensures our success with thunderous determination.
+### Background
+Prior to joining Johns Hopkins, Dr. Keller was faculty at Harvard Medical School and an attending physician at Brigham and Women's Hospital where he served as the inaugural Medical Director of the Extracorporeal Membrane Oxygenation Service. Clinically, he attended on the lung transplant service and also in the medical intensive care unit and cardiac surgical intensive care unit. 
 
-### Early Life
+### Education
+He received his medical degree from Stanford University and completed residency training in internal medicine at the Massachusetts General Hospital prior to completing fellowship training in pulmonary and critical care medicine at Johns Hopkins Hospital and the National Institutes of Health. Before pursuing a career in medicine, Dr. Keller received his undergraduate degree from Purdue University in electrical engineering and his master’s in semiconductor physics at Cambridge University where he studied as a Churchill Scholar. He received his doctorate in medical engineering from the Massachusetts Institute of Technology where he was awarded the Department of Defense and National Science Foundation graduate fellowships.
 
-Zeus was the son of Cronus and Rhea. He was the youngest of his siblings, and the only one who was not swallowed by his father. He was also the only one who was not castrated by his father.
-
-### Leadership Style
-
-Zeus is a strong leader who is not afraid to make tough decisions. He is a great communicator and is able to inspire his team to greatness. He is also a great listener and is able to understand the needs of his team.
-
-### Key Accomplishments
-
-Zeus has overthrown his father, Cronus, and freed his siblings from their imprisonment. He has also sired many children with his many lovers. He is the king of the gods and the ruler of Mount Olympus.
-
-### Fun Facts
-
-Zeus is the king of the gods and the ruler of Mount Olympus. He is the god of the sky, thunder, lightning, and law. He is also the god of the sun, moon, and stars. He is the father of the Greek gods. He is the husband of Hera. He is the brother of Poseidon and Hades.
+Dr. Keller conducts translational research on mechanical circulatory support, organ-device interactions, and extracorporeal organ perfusion.

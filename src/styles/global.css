@@ -618,7 +618,7 @@ body {
 }
 
 .hex-background {
-    --hex-size: 40px;
+    --hex-size: 20px;
     --hex-stroke: 2px;
     --c1: var(--color-primary);
     --c2: var(--color-primary-dark);
@@ -641,7 +641,7 @@ body {
 }
 
 .cube-background {
-    --hex-size: 40px;
+    --hex-size: 30px;
     --hex-stroke: 2px;
     --c1: var(--color-primary);
     --c2: var(--color-primary-dark);
