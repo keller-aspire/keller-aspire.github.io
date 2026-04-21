@@ -3,6 +3,7 @@ import Layout from '@layouts/Layout.astro';
 import InnerHero from '@components/sections/InnerHero.astro';
 import TeamGrid from '@components/sections/TeamGrid.astro';
 import PI from '@components/sections/PI.astro';
+import heroImage from '../../assets/images/home/meet-the-team.jpg';
 
 const seoTitle = "Our Team";
 const seoDescription = "Our team is made up of a diverse group of people who are passionate about building amazing websites with ease.";
@@ -10,6 +11,8 @@ const seoDescription = "Our team is made up of a diverse group of people who are
 const heroContent = {
     title: "Our Team",
     description: "Meet the people behind ASPIRE Lab.",
+    backgroundImage: heroImage,
+    overlayOpacity: 0.4
 }
 
 ---

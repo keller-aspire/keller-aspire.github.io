@@ -2,7 +2,7 @@
 name: "Steve Keller"
 category: "PI"
 headshot: "./images/steve1.jpg"
-altImg: "./images/zeus.jpg"
+altImg: "./images/grace.jpg"
 degree: "MD, PhD"
 medschool: "Stanford (2006)"
 phd: "MIT (2000)"

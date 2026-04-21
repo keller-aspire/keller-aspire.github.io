@@ -2,11 +2,12 @@
 name: "Kelley M. Kempski Leadingham"
 category: "Current"
 headshot: "./images/kelley1.jpg"
+altImg: "./images/kelley2.jpg"
 jobTitle: "Research Program Manager"
 undergrad: "University of Delaware (2018)"
 grad: "Johns Hopkins University (2021)"
 publish: true
-order: 6
+order: 8
 hasPage: true
 researchInterests: "Medical image analysis and medical device development"
 hobbies: "Reading, sewing, and playing the piano"

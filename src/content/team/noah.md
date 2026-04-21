@@ -1,0 +1,16 @@
+---
+name: "Noah Ehrhardt"
+category: "Current"
+headshot: "./images/noah1.jpg"
+altImg: "./images/noah2.jpg"
+jobTitle: "Research Specialist"
+undergrad: "Brown University (2024)"
+publish: true
+order: 10
+linkedin: "https://www.linkedin.com/in/noah-ehrhardt-9a77a01b2/"
+linkedinUsername: "noahehrhardt"
+hobbies: "Hockey, baking, volleyball, guitar"
+researchInterests: "Visual computing"
+hasPage: false
+---
+

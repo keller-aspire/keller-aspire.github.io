@@ -2,6 +2,7 @@
 name: "Ian R. Woodward"
 category: "Current"
 headshot: "./images/ian1.jpg"
+altImg: "./images/ian2.jpg"
 jobTitle: "Research Analyst"
 degree: "PhD"
 undergrad: "University of Delaware"
