@@ -11,13 +11,7 @@ fellowship: "Johns Hopkins"
 jobTitle: "Principal Investigator"
 publish: true
 order: 1
-linkedin: "https://www.linkedin.com/in/zeus/"
-linkedinUsername: "zeus"
 email: "steven.keller@jhmi.edu"
-xSocial: "https://x.com/zeus"
-xSocialUsername: "zeus"
-github: "https://github.com/zeus"
-githubUsername: "zeus"
 hasPage: true
 ---
 
