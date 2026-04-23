@@ -5,9 +5,9 @@ import InnerHero from '../../components/sections/InnerHero.astro';
 import Carousel from '../../components/sections/Carousel.astro';
 import Button from '../../components/ui/Button.astro';
 import heroImage from '../../assets/images/home/default-hero.jpg';
-import aboutImage from '../../assets/images/home/about.jpg';
-import developerImage from '../../assets/images/home/developer.jpg';
-import heroeImage from '../../assets/images/home/default-hero-2.jpg';
+import pipetteImage from '../../assets/images/home/about.jpg';
+import ianLungImage from '../../assets/images/home/developer.jpg';
+import lung3dImage from '../../assets/images/lung3d.png';
 
 // Get research-area markdown files
 const areaEntries = await getCollection('areas');
@@ -22,7 +22,7 @@ const sortedAreas = areaEntries.sort((a, b) => {
 const carouselSlides = sortedAreas.map((area, index) => ({
   title: area.data.title,
   description: area.data.subtitle || `Explore our research in ${area.data.title}`,
-  image: [aboutImage, developerImage, heroeImage][index % 3],
+  image: [pipetteImage, ianLungImage, lung3dImage][index % 3],
   buttons: [
     {
       text: 'Learn More',
