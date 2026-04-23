@@ -7,7 +7,7 @@ export const siteConfig = {
       Instagram: 'https://www.instagram.com/astrodotbuild',
       LinkedIn: 'https://www.linkedin.com/company/astrodotbuild',
       Email: 'aspirelab@jh.edu',
-      Phone: '+123 456 7890',
+      Phone: '(727) 767-3333',
       Location: '733 N Broadway, Baltimore, MD 21205',
   }
 };

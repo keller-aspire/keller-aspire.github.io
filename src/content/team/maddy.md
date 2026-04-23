@@ -1,6 +1,7 @@
 ---
 name: "Madison Malfitano"
 category: "Current"
+degree: "MD"
 headshot: "./images/judelaw.jpg"
 altImg: "./images/grace.jpg"
 jobTitle: "Postdoc"

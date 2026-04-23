@@ -31,7 +31,7 @@ const sortedTeamMembers = teamMembers.sort((a, b) => a.data.order - b.data.order
         <h2>{title}</h2>
     </div>
     <div class="site-container mx-auto px-4 mt-8 justify-center">
-        <div class="grid grid-cols-2 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 xl:gap-x-8 xl:gap-y-14">
+        <div class="grid grid-cols-2 sm: grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 xl:gap-x-8 xl:gap-y-14">
             {
                 sortedTeamMembers.map(({ data: member, id: memberId }, index) => (
                     <div
@@ -40,8 +40,8 @@ const sortedTeamMembers = teamMembers.sort((a, b) => a.data.order - b.data.order
                         data-aos-delay={index * 100}
                         data-aos-duration="800"
                     >
-                        <div class="flex flex-col md:flex-row gap-4 items-start bg-white p-4">
-                            <div class="relative overflow-hidden group md:w-1/2">
+                        <div class="flex flex-col gap-4 items-start bg-white p-4">
+                            <div class="relative overflow-hidden group w-full">
                                 <span class="absolute inset-0 -mt-12 h-400 w-1/2 translate-x-[250%] rotate-12 bg-white opacity-20 group-hover:transition-all group-hover:duration-300 ease-out group-hover:translate-x-[-250%] z-10" />
                                 {member.headshot ? (
                                     (() => {
@@ -95,7 +95,7 @@ const sortedTeamMembers = teamMembers.sort((a, b) => a.data.order - b.data.order
                                         {member.name}{member.degree && `, ${member.degree}`}
                                     </h3>
                                 )}
-                                <p class="text-xsmall text-body-base">{member.jobTitle}</p>
+                                <p class="text-small text-body-base">{member.jobTitle}</p>
 
                                 {member.email && (
                                     <a
@@ -129,48 +129,6 @@ const sortedTeamMembers = teamMembers.sort((a, b) => a.data.order - b.data.order
                                         <Linkedin size={14} strokeWidth={1.25} />
                                         <span class="break-all">{member.linkedinUsername}</span>
                                     </a>
-                                )}
-
-                                {member.undergrad && (
-                                    <p class="flex items-center gap-2 text-xsmall text-body-base">
-                                        <GraduationCap size={14} strokeWidth={1.25} />
-                                        <span class="break-all">{member.undergrad}</span>
-                                    </p>
-                                )}
-
-                                {member.grad && (
-                                    <p class="flex items-center gap-2 text-xsmall text-body-base">
-                                        <School size={14} strokeWidth={1.25} />
-                                        <span class="break-all">{member.grad}</span>
-                                    </p>
-                                )}
-
-                                {member.phd && (
-                                    <p class="flex items-center gap-2 text-xsmall text-body-base">
-                                        <University size={14} strokeWidth={1.25} />
-                                        <span class="break-all">{member.phd}</span>
-                                    </p>
-                                )}
-
-                                {member.medschool && (
-                                    <p class="flex items-center gap-2 text-xsmall text-body-base">
-                                        <Stethoscope size={14} strokeWidth={1.25} />
-                                        <span class="break-all">{member.medschool}</span>
-                                    </p>
-                                )}
-
-                                {member.residency && (
-                                    <p class="flex items-center gap-2 text-xsmall text-body-base">
-                                        <Hospital size={14} strokeWidth={1.25} />
-                                        <span class="break-all">{member.residency}</span>
-                                    </p>
-                                )}
-
-                                {member.fellowship && (
-                                    <p class="flex items-center gap-2 text-xsmall text-body-base">
-                                        <Microscope size={14} strokeWidth={1.25} />
-                                        <span class="break-all">{member.fellowship}</span>
-                                    </p>
                                 )}
                             </div>
                         </div>

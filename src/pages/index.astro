@@ -3,18 +3,15 @@ import Layout from '@layouts/Layout.astro';
 import Hero from '@components/sections/Hero.astro';
 import Button from '@components/ui/Button.astro';
 import SplitPanel from '@components/sections/SplitPanel.astro';
-import Stats from '@components/sections/Stats.astro';
-import { featureLists } from '@data/features';
-import { statsLists } from '@data/stats';
-import { logoLists } from '@data/logos';
 import CtaBanner from '@components/sections/CtaBanner.astro';
 import Faqs from '@components/sections/Faqs.astro';
 import { faqLists } from '@data/faqs';
 import Carousel from '@components/sections/Carousel.astro';
-import RecentPosts from '@components/sections/RecentPosts.astro';
 import heroImage from '../assets/images/home/default-hero-2.jpg';
-import styleGuideImage from '../assets/images/home/developer.jpg';
 import heroImage2 from '../assets/images/home/default-hero.jpg';
+import heroImage3 from '../assets/images/home/dome.jpg';
+import heroImage4 from '../assets/images/home/peabody2.jpg';
+import styleGuideImage from '../assets/images/home/developer.jpg';
 import teamImage from '../assets/images/home/meet-the-team.jpg';
 
 const seoTitle = "Aspire Lab";
@@ -29,8 +26,8 @@ const heroContent = {
             link: '/vision',
         }
     ],
-    backgroundImage: heroImage,
-    overlayOpacity: 0.2
+    backgroundImage: heroImage3,
+    overlayOpacity: 0.8
 }
 
 const originalHeroContent = {
@@ -85,30 +82,6 @@ const carouselSlides = [
     }
 ];
 
-const featuresSection = {
-    eyebrow: "CORE FEATURES",
-    title: "Everything You Need, Nothing You Don't",
-    description: "Titan Core gives you a solid foundation with essential features while staying lightweight and customizable. Start with a clean slate and build exactly what you need without the bloat.",
-    features: featureLists.main.features,
-    button: {
-        text: "View Theme Info",
-        link: "/theme-info",
-        variant: "primary" as const
-    }
-}
-
-const FooterCta = {
-    eyebrow: "Join The Community",
-    title: ' Start Building With Titan Core Today',
-    description: 'Titan Core is open-source and constantly improving. Join our community of developers to contribute, get support, or showcase what you\'ve built.',
-    hideCta: false,
-    button: {
-        text: 'Download Titan Core',
-        link: 'https://github.com/rspisarski/titan-core',
-        target: '_blank'
-    }
-}
-
 const team = {
     eyebrow: "People",
     headline: "The ASPIRE Team",
@@ -131,61 +104,15 @@ const team = {
     ]
 }
 
-const sideBySideStats = {
-    eyebrow: "Stats",
-    title: "Built for Speed and Flexibility",
-    description: "Titan Core is designed with performance and developer experience in mind. Our lightweight theme gives you all the essentials without the bloat, letting you build exactly what you need with impressive speed.",
-    variant: 'side-by-side' as const,
-    stats: statsLists.withContent.stats,
-    content: {
-        title: "Built for Speed and Flexibility",
-        description: "Titan Core is designed with performance and developer experience in mind. Our lightweight theme gives you all the essentials without the bloat, letting you build exactly what you need with impressive speed.",
-        button: {
-            text: "Discover Titan Core",
-            link: "/theme-info",
-            variant: "primary" as const
-        }
-    }
-};
-
-const mainCta = {
-    eyebrow: "Aspire Lab",
-    title: "Our Vision",
-    description: "Our lab is dedicated to advancing critical care through the development of intelligent, automated systems that support life-saving interventions. By integrating physiological modeling, real-time monitoring, and adaptive control strategies, we aim to improve outcomes in trauma, respiratory failure, and acute care settings. Our multidisciplinary research bridges engineering and medicine to deliver innovative, patient-centered solutions.",
-    button: {
-        text: "Read More",
-        link: "/vision",
-        variant: "primary" as const,
-        target: "_self" as const
-    }
-};
-
-
-const logosSection = {
-    eyebrow: "Our Clients",
-    logos: logoLists.main.logos
-}
-
 const faqsSection = {
     eyebrow: "Publications",
     title: 'Featured ASPIRE Lab Publications',
     description: 'Read more about our latest research.',
     faqs: faqLists.main.faqs
 }
-
-const recentPostsSection = {
-    eyebrow: "NEWS",
-    title: "Recent News from ASPIRE Lab",
-    description: "Explore our latest articles on Astro JS development, theme customization tips, and web performance best practices.",
-    button: {
-            text: "View All Posts",
-            link: "/news",
-        variant: "primary" as const
-    }
-}
 ---
 
-<Layout footerCta={FooterCta} title={seoTitle} description={seoDescription}>
+<Layout title={seoTitle} description={seoDescription}>
     <Hero content={heroContent} />
     <section class="py-small bg-stone-50">
         <div class="site-container--small mx-auto px-8">

@@ -12,14 +12,14 @@ const heroContent = {
     title: "Our Team",
     description: "Meet the people behind ASPIRE Lab.",
     backgroundImage: heroImage,
-    overlayOpacity: 0.4
+    overlayOpacity: 0.5
 }
 
 ---
 
 <Layout title={seoTitle} description={seoDescription}>
     <InnerHero content={heroContent}  />
-    <PI padding="base" title="Principal Investigator" contentFile="team/stevekeller"/>
     <TeamGrid padding="base" category="Current" title="Current Members"/>
-    <TeamGrid padding="base" category="Past" title="Past Members"/>
+    <!-- <TeamGrid padding="base" category="Past" title="Past Members"/> -->
+     <PI padding="base" title="Principal Investigator" contentFile="team/stevekeller"/>
 </Layout>

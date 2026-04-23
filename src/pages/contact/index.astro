@@ -1,11 +1,14 @@
 ---
 import Layout from "@layouts/Layout.astro"
+import heroImage from '../../assets/images/home/meet-the-team.jpg';
 import InnerHero from "@components/sections/InnerHero.astro"
 import ContactInfo from "@components/sections/ContactInfo.astro"
 
 const heroContent = {
     title: "Contact",
-    description: "Contact us for more information"
+    description: "Contact us for more information",
+    backgroundImage: heroImage,
+    overlayOpacity: 0.7
 }
 ---
 

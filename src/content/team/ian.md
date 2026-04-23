@@ -17,3 +17,7 @@ researchInterests: "Developing multimodal models to inform management of lung he
 hobbies: "Supplying the lab with seasonal gelato flavors"
 hasPage: false
 ---
+
+### Education
+- B.S. Chemical Engineering, North Carolina State University (2017)
+- Ph.D. Chemical Engineering, University of Delaware (2023)
