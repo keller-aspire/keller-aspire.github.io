@@ -602,6 +602,30 @@ button a:hover {
     text-decoration: none !important;
 }
 
+/* Figure and figcaption styling for research content */
+figure {
+    position: relative;
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    margin: 2rem auto;
+}
+
+figure img {
+    width: 100%;
+    display: block;
+}
+
+figcaption {
+    background-color: var(--color-primary-dark);
+    color: white;
+    padding: 1rem;
+    position: relative;
+    z-index: 10;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
 .hero-background {
     --s: 34px;
     /* control the size*/
@@ -704,3 +728,5 @@ pre[class*="language-"] {
     border-radius: 2px;
     font-weight: 400;
 }
+
+

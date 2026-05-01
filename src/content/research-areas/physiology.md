@@ -51,5 +51,11 @@ Our computational work is tightly linked to our experimental and engineering res
 
 This integrated platform enables rigorous validation, rapid hypothesis testing, and accelerated translation from algorithm development to real-world clinical application.
 
+
+<figure>
+  <img src="../src/assets/images/cytocam.png" alt="Sublingual perfusion">
+  <figcaption>Sublingual perfusion analysis with optical flow during hemorrhagic shock</figcaption>
+</figure>
+
 ### Beyond a Single Clinical Domain
 While many applications arise in organ support and acute illness, the computational frameworks developed at ASPIRE are broadly applicable across healthcare. Our approach is designed to scale — enabling data-driven physiologic insight wherever high-resolution monitoring and advanced technologies intersect with patient care.

@@ -1,39 +1,27 @@
-# Titan Core - Modern Astro Theme
+# ASPIRE Lab Website
+[Live Site Here](aspirelab.co)
+
+## Theme: Titan Core - Modern Astro Theme
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 **Titan Core** is a high-performance, feature-rich theme for Astro JS, designed for modern websites, blogs, and portfolios. With beautiful UI components, multiple theme options, and a focus on performance, Titan Core helps you build stunning websites quickly.
 
 [Live Demo](https://titan-core.netlify.app)
 
-## ✨ Features
+[Github Repo](https://github.com/rspisarski/titan-core)
 
-- 🎨 **Multiple Theme Options** - Choose from various color themes
-- 📱 **Fully Responsive** - Looks great on all devices
-- 🚀 **Performance Focused** - Optimized for speed and SEO
-- 📝 **Blog Ready** - Complete blog functionality with categories and pagination
-- 🔍 **SEO Optimized** - Meta tags, Open Graph, Twitter Cards, and sitemap
-- 🧩 **Component-Based** - Modular architecture for easy customization
-- 🎭 **Animation Ready** - Integrated AOS (Animate On Scroll) for smooth animations
-- 📊 **Stats Section** - Display your metrics with beautiful stat components
-- 🤝 **Team Grid** - Showcase your team members
-- 🔄 **Flexible Layouts** - Hero sections, feature grids, split panels, and more
-- 📋 **FAQ Component** - Easy-to-use FAQ accordion
-- 📞 **Contact Components** - Ready-to-use contact information display
-- 🏢 **Logo Showcase** - Display partner or client logos
-- 🔘 **Modern UI Components** - Buttons, forms, cards, and more
-
-## 🚀 Quick Start
+## Site Editing
 
 ```bash
-# Create a new project with this theme
-npm create astro@latest -- --template rspisarski/titan-core
-
-# or clone this repository
-git clone https://github.com/rspisarski/titan-core.git my-website
-cd my-website
+# clone this repository
+git clone https://github.com/keller-aspire/keller-aspire.github.io.git keller-aspire.github.io
+cd keller-aspire.github.io
 npm install
 npm run dev
+Ctrl + C (to exit)
 ```
+
+Push changes to main to update on live site
 
 ## 📁 Project Structure
 
@@ -93,6 +81,7 @@ export const themeSetting = {
 8. `hermes` - Speed theme
 9. `dionysus` - Festivity theme
 10. `demeter` - Nature theme
+11. `aspire` – Custom ASPIRE Lab Theme
 
 ### Removing the Theme Switcher
 
