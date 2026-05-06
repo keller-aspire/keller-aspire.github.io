@@ -49,6 +49,7 @@ const team = defineCollection({
             xSocialUsername: z.string().optional(),
             github: z.string().url().optional(),
             githubUsername: z.string().optional(),
+            bibliography: z.string().optional(),
             order: z.number().default(999),
             publish: z.boolean().default(true),
             researchInterests: z.string().optional(),

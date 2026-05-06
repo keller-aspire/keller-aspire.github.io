@@ -1,5 +1,5 @@
 ---
-import { Github, Linkedin, Mail, Stethoscope, GraduationCap, School, University, Hospital, Microscope} from 'lucide-astro';
+import { Github, Linkedin, Mail, Book, Stethoscope, GraduationCap, School, University, Hospital, Microscope} from 'lucide-astro';
 import { Image } from 'astro:assets';
 interface Props {
     entry: any; // You might want to type this properly with your collection type
@@ -14,7 +14,19 @@ const { entry } = Astro.props;
             <div>
                 <h2 class="text-h5 font-bold text-body-base mb-1">{entry.data.name}{entry.data.degree && `, ${entry.data.degree}`}</h2>
                 <p class="text-small text-body-base mb-3">{entry.data.jobTitle}</p>
-                
+                {
+                    entry.data.bibliography && (
+                        <a
+                            href={entry.data.bibliography}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="flex items-center gap-2 text-body-base hover:text-primary transition-colors text-small truncate"
+                        >
+                            <Book size={18} strokeWidth={1.25} />
+                            <span class="truncate">{"Bibliography"}</span>
+                        </a>
+                    )
+                }
                 {
                     entry.data.email && (
                         <a

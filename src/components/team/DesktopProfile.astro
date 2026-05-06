@@ -1,5 +1,5 @@
 ---
-import { Github, Linkedin, Mail, Stethoscope, GraduationCap, School, University, Hospital, Microscope} from 'lucide-astro';
+import { Github, Linkedin, Mail, Book, Stethoscope, GraduationCap, School, University, Hospital, Microscope} from 'lucide-astro';
 import { Image } from 'astro:assets';
 
 interface Props {
@@ -50,6 +50,19 @@ const { entry } = Astro.props;
         <p class="text-small text-body-base mb-4">{entry.data.jobTitle}</p>
 
         <div class="flex flex-col items-center gap-4">
+            {
+                entry.data.bibliography && (
+                    <a
+                        href={entry.data.bibliography}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="flex items-center gap-2 text-body-base hover:text-primary transition-colors text-small"
+                    >
+                        <Book size={18} strokeWidth={1.25} />
+                        <span class="break-all">{"Bibliography"}</span>
+                    </a>
+                )
+            }
             {
                 entry.data.email && (
                     <a

@@ -3,7 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import InnerHero from '../../components/sections/InnerHero.astro';
 import heroImage from '../../assets/images/home/peabody2.jpg';
 import Publication from '../../components/sections/Publication.astro';
-import styleGuideImage from '../../assets/images/home/developer.jpg';
+import { publications } from '../../data/publications';
 
 // Hero content
 const heroContent = {
@@ -12,50 +12,71 @@ const heroContent = {
     description: 'ASPIRE Lab Publications',
     overlayOpacity: 0.8,
 };
-
-const pub1 = {
-    headline: "Publication Title 1",
-    description: "This is where a summary of the abstract would go.",
-    link: {
-        text: "https://doi.org/10.1016/j.device.2024.100514",
-        url: "https://www.sciencedirect.com/science/article/pii/S2666998624004149?via%3Dihub"
-    },
-    image: {
-        src: styleGuideImage,
-        alt: "Publication Image"
-    },
-}
-
-const pub2 = {
-    headline: "Publication Title 2",
-    description: "This is where a summary of the abstract would go.",
-    link: {
-        text: "https://doi.org/10.1016/j.device.2024.100514",
-        url: "https://www.sciencedirect.com/science/article/pii/S2666998624004149?via%3Dihub"
-    },
-}
 ---
 
-<Layout title="Our Vision">
+<Layout title="Publications">
     <InnerHero content={heroContent} />
+    <div class="site-container py-8">
+        {publications.map((category, categoryIndex) => (
+            <div key={`${category.name}-${categoryIndex}`}>
+                {/* Category Title */}
+                <section class="pt-12 pb-4">
+                    
+                        <div class="bg-primary-dark text-white inline-block px-12 py-4">
+                            <h2>{category.name}</h2>
+                        </div>
+                    
+                </section>
 
-    <section class="py-small">
-        <div class="site-container--small mx-auto px-8">
-            <h1>ASPIRE Lab Publications</h1>
-        </div>
-    </section>
+                {/* Subcategories */}
+                {Object.entries(category.subcategories).map(([subcategoryName, pubs]) => (
+                    <div key={subcategoryName}>
+                        {/* Subcategory Title */}
+                        <section class="py-4">
+                            <div class="site-container px-12">
+                                <h3 class="font-semibold text-gray-700">{subcategoryName}</h3>
+                            </div>
+                        </section>
 
-    {/* You can add other sections here between markdown content */}
-    {/* Example:
-    <SomeOtherSection />
-    */}
-    <Publication content={pub1} imagePosition="right" background="light" padding="xs" />
-
-    <section class="py-small">
-        <div class="site-container--small mx-auto px-8">
-            <h1>Prior Publications</h1>
-        </div>
-    </section>
-    <Publication content={pub2} imagePosition="right" background="light" paddingTop="xs" paddingBottom="large" />
-
+                        {/* Publications */}
+                        {pubs.map((pub, pubIndex) => (
+                            pub.type === 'featured' ? (
+                                <Publication
+                                    key={`${subcategoryName}-featured-${pubIndex}`}
+                                    content={{
+                                        headline: pub.headline,
+                                        description: pub.description,
+                                        link: pub.link,
+                                        image: pub.image,
+                                    }}
+                                    imagePosition={pubIndex % 2 === 0 ? 'right' : 'left'}
+                                    background={pubIndex % 2 === 0 ? 'light' : 'base'}
+                                    paddingTop={pubIndex === 0 ? 'xs' : 'base'}
+                                    paddingBottom={pubIndex === pubs.length - 1 ? 'xs' : 'base'}
+                                />
+                            ) : (
+                                <section key={`${subcategoryName}-citation-${pubIndex}`} class="py-4">
+                                    <div class="site-container--small mx-auto px-8">
+                                        <div class="flex gap-4 items-start">
+                                            <p class="text-base text-gray-700 leading-relaxed flex-1">
+                                                {pub.citation}
+                                            </p>
+                                            {pub.link && (
+                                                <a
+                                                    href={pub.link.url}
+                                                    class="text-primary-dark hover:underline font-semibold whitespace-nowrap flex-shrink-0 mt-1"
+                                                >
+                                                    {pub.link.text}
+                                                </a>
+                                            )}
+                                        </div>
+                                    </div>
+                                </section>
+                            )
+                        ))}
+                    </div>
+                ))}
+            </div>
+        ))}
+    </div>
 </Layout>

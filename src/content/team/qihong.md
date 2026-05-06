@@ -12,6 +12,7 @@ publish: true
 order: 2
 linkedin: "https://www.linkedin.com/in/qihongwang/"
 linkedinUsername: "qihongwang"
+bibliography: "https://www.ncbi.nlm.nih.gov/myncbi/1Vas-SbXSRJQQ/bibliography/public/"
 email: "qwang26@jh.edu"
 hasPage: true
 researchInterests: "Animal survival surgery and microsurgical techniques"
