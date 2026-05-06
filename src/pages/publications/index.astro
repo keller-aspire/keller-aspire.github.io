@@ -57,19 +57,17 @@ const heroContent = {
                             ) : (
                                 <section key={`${subcategoryName}-citation-${pubIndex}`} class="py-4">
                                     <div class="site-container--small mx-auto px-8">
-                                        <div class="flex gap-4 items-start">
-                                            <p class="text-base text-gray-700 leading-relaxed flex-1">
-                                                {pub.citation}
-                                            </p>
+                                        <p class="text-base text-gray-700 leading-relaxed">
+                                            {pub.citation}
                                             {pub.link && (
-                                                <a
-                                                    href={pub.link.url}
-                                                    class="text-primary-dark hover:underline font-semibold whitespace-nowrap flex-shrink-0 mt-1"
-                                                >
-                                                    {pub.link.text}
-                                                </a>
+                                                    <a
+                                                        href={pub.link.url}
+                                                        class="text-primary-dark hover:underline font-semibold"
+                                                    >
+                                                        {pub.link.text}
+                                                    </a>
                                             )}
-                                        </div>
+                                        </p>
                                     </div>
                                 </section>
                             )
