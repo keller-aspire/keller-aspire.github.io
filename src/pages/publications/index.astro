@@ -21,58 +21,47 @@ const heroContent = {
             <div key={`${category.name}-${categoryIndex}`}>
                 {/* Category Title */}
                 <section class="pt-12 pb-4">
-                    
-                        <div class="bg-primary-dark text-white inline-block px-12 py-4">
-                            <h2>{category.name}</h2>
-                        </div>
-                    
+                    <div class="bg-primary-dark text-white inline-block px-12 py-4">
+                        <h2>{category.name}</h2>
+                    </div>
                 </section>
 
-                {/* Subcategories */}
-                {Object.entries(category.subcategories).map(([subcategoryName, pubs]) => (
-                    <div key={subcategoryName}>
-                        {/* Subcategory Title */}
-                        <section class="py-4">
-                            <div class="site-container px-12">
-                                <h3 class="font-semibold text-gray-700">{subcategoryName}</h3>
+                {/* Publications */}
+                {category.publications.map((pub, pubIndex) => (
+                    pub.type === 'featured' ? (
+                        <Publication
+                            key={`${category.name}-featured-${pubIndex}`}
+                            content={{
+                                headline: pub.headline,
+                                description: pub.description,
+                                link: pub.link,
+                                image: pub.image,
+                            }}
+                            imagePosition={pubIndex % 2 === 0 ? 'right' : 'left'}
+                            background={pubIndex % 2 === 0 ? 'light' : 'base'}
+                            paddingTop={pubIndex === 0 ? 'xs' : 'base'}
+                            paddingBottom={pubIndex === category.publications.length - 1 ? 'xs' : 'base'}
+                        />
+                    ) : (
+                        <section key={`${category.name}-citation-${pubIndex}`} class="py-4">
+                            <div class="site-container--small mx-auto px-8">
+                                <p class="text-base text-gray-700 leading-relaxed">
+                                    {pub.citation}
+                                    {pub.link && (
+                                        <>
+                                            {' '}
+                                            <a
+                                                href={pub.link.url}
+                                                class="text-primary-dark hover:underline font-semibold"
+                                            >
+                                                {pub.link.text}
+                                            </a>
+                                        </>
+                                    )}
+                                </p>
                             </div>
                         </section>
-
-                        {/* Publications */}
-                        {pubs.map((pub, pubIndex) => (
-                            pub.type === 'featured' ? (
-                                <Publication
-                                    key={`${subcategoryName}-featured-${pubIndex}`}
-                                    content={{
-                                        headline: pub.headline,
-                                        description: pub.description,
-                                        link: pub.link,
-                                        image: pub.image,
-                                    }}
-                                    imagePosition={pubIndex % 2 === 0 ? 'right' : 'left'}
-                                    background={pubIndex % 2 === 0 ? 'light' : 'base'}
-                                    paddingTop={pubIndex === 0 ? 'xs' : 'base'}
-                                    paddingBottom={pubIndex === pubs.length - 1 ? 'xs' : 'base'}
-                                />
-                            ) : (
-                                <section key={`${subcategoryName}-citation-${pubIndex}`} class="py-4">
-                                    <div class="site-container--small mx-auto px-8">
-                                        <p class="text-base text-gray-700 leading-relaxed">
-                                            {pub.citation}
-                                            {pub.link && (
-                                                    <a
-                                                        href={pub.link.url}
-                                                        class="text-primary-dark hover:underline font-semibold"
-                                                    >
-                                                        {pub.link.text}
-                                                    </a>
-                                            )}
-                                        </p>
-                                    </div>
-                                </section>
-                            )
-                        ))}
-                    </div>
+                    )
                 ))}
             </div>
         ))}

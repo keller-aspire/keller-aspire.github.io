@@ -20,7 +20,7 @@ interface Props {
 }
 
 const { content } = Astro.props;
-const opacity = content.overlayOpacity ?? 1; // Default opacity if not specified
+const opacity = content.overlayOpacity ?? 0.8; // Default opacity if not specified
 ---
 
 <section class="header-offset relative">
@@ -38,7 +38,7 @@ const opacity = content.overlayOpacity ?? 1; // Default opacity if not specified
                 decoding="async"
             />
             <div
-                class="hex-background absolute inset-0 left-0 top-0 w-full h-full overflow-hidden"
+                class="plain-background absolute inset-0 left-0 top-0 w-full h-full overflow-hidden"
                 style={`opacity: ${opacity};`}
             ></div>
         </div>

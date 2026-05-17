@@ -644,6 +644,10 @@ figcaption {
     background-size: var(--s) var(--s);
 }
 
+.plain-background {
+    background-color: var(--color-primary-dark);
+}
+
 .tri-background {
     --hex-size: 40px;
     --hex-line: 2px;
