@@ -40,6 +40,11 @@ Our work aims to:
 
 Through quantitative characterization of physiologic state, we lay the foundation for smarter, earlier, and more targeted interventions.
 
+<figure>
+  <img src="../src/assets/images/elisa.jpg" alt="ELISA">
+  <figcaption>ELISA analysis to detect injury markers</figcaption>
+</figure>
+
 ### From Mechanism to Intervention
 Understanding mechanisms is not an end in itself. The insights generated in this research pillar directly inform:
 - Engineering strategies for organ support

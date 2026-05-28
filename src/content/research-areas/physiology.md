@@ -19,6 +19,11 @@ Our modeling efforts include:
 
 These models allow us to move beyond descriptive metrics toward mechanistic characterization and predictive insight.
 
+<figure>
+  <img src="../src/assets/images/Figure1.png" alt="Pulse Physiology">
+  <figcaption>We use experimental data to validate in silico hemorrhage simulations.</figcaption>
+</figure>
+
 ### Advanced Analysis of Physiologic Monitoring Data
 Healthcare environments generate high-frequency waveform data from ventilators, hemodynamic monitors, and extracorporeal systems. We apply advanced signal processing, machine learning, and statistical modeling to extract clinically meaningful information from these complex streams.
 
