@@ -8,12 +8,12 @@ When organs fail, technology becomes a bridge between injury and recovery. At AS
 Our approach integrates systems physiology, translational experimentation, and quantitative analysis to rigorously define how devices interact with the body — and how those interactions can be improved.
 <!--<img src="../../assets/images/pumps.jpeg" alt="Automated Pumps"> --> 
 <figure>
-  <img src="./images/pumps.jpeg" alt="Automated Pumps">
+  <img src="/assets/images/pumps.jpeg" alt="Automated Pumps">
   <figcaption>Automated titration pumps</figcaption>
 </figure>
 
 <figure>
-  <img src="./images/vitals_monitor.jpg" alt="Automated Resuscitation Vitals Monitor">
+  <img src="../src/assets/images/vitals_monitor.jpg" alt="Automated Resuscitation Vitals Monitor">
   <figcaption>Monitoring for automated resuscitation system</figcaption>
 </figure>
 

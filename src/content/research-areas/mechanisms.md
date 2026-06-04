@@ -41,7 +41,7 @@ Our work aims to:
 Through quantitative characterization of physiologic state, we lay the foundation for smarter, earlier, and more targeted interventions.
 
 <figure>
-  <img src="./images/elisa.jpg" alt="ELISA">
+  <img src="/assets/images/elisa.jpg" alt="ELISA">
   <figcaption>ELISA analysis to detect injury markers</figcaption>
 </figure>
 
