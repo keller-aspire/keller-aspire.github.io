@@ -52,6 +52,21 @@ const fullCanonicalUrl = new URL(canonicalPath, siteConfig.siteUrl).toString();
 		<title>{pageTitle}</title>
 		<meta name="description" content={pageDescription} />
 		<meta name="robots" content="index, follow" />
+		<!-- Schema.org Organization markup for Google Search Logo -->
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "Organization",
+			"name": "Aspire Lab",
+			"url": "https://aspirelab.co",
+			"logo": "https://aspirelab.co/apple-touch-icon.png",
+			"contactPoint": {
+				"@type": "ContactPoint",
+				"contactType": "ASPIRE Lab Contact",
+				"email": "aspirelab@jh.edu",
+			}
+		}
+		</script>
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
