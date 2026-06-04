@@ -6,14 +6,14 @@ subtitle: Designing Smarter Systems to Restore Organ Function
 When organs fail, technology becomes a bridge between injury and recovery. At ASPIRE, we engineer, evaluate, and optimize advanced organ support technologies with a singular goal: to restore physiologic function while minimizing unintended harm.
 
 Our approach integrates systems physiology, translational experimentation, and quantitative analysis to rigorously define how devices interact with the body — and how those interactions can be improved.
-
+<!--<img src="../../assets/images/pumps.jpeg" alt="Automated Pumps"> --> 
 <figure>
-  <img src="../../assets/images/pumps.jpeg" alt="Automated Pumps">
+  <img src="./images/pumps.jpeg" alt="Automated Pumps">
   <figcaption>Automated titration pumps</figcaption>
 </figure>
 
 <figure>
-  <img src="../../assets/images/vitals_monitor.jpg" alt="Automated Resuscitation Vitals Monitor">
+  <img src="./images/vitals_monitor.jpg" alt="Automated Resuscitation Vitals Monitor">
   <figcaption>Monitoring for automated resuscitation system</figcaption>
 </figure>
 

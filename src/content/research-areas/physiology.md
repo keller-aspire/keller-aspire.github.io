@@ -20,7 +20,7 @@ Our modeling efforts include:
 These models allow us to move beyond descriptive metrics toward mechanistic characterization and predictive insight.
 
 <figure>
-  <img src="../../assets/images/Figure1.png" alt="Pulse Physiology">
+  <img src="./images/Figure1.png" alt="Pulse Physiology">
   <figcaption>We use experimental data to validate in silico hemorrhage simulations.</figcaption>
 </figure>
 
