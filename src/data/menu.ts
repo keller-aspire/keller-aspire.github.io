@@ -11,8 +11,8 @@ export const headerMenu = [
     { name: 'About Us', link: '/vision', showArrow: false,
         children: [
             { name: 'Our Vision', link: '/vision' },
-            { name: 'Steve Keller', link: '/team/stevekeller' },
             { name: 'Our Team', link: '/team' },
+            { name: 'Steve Keller', link: '/team/stevekeller' },
         ]
     },
     { name: 'Research', link: '/research-areas', showArrow: false,
