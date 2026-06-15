@@ -24,7 +24,7 @@ const { footerCta } = Astro.props;
 
 const defaultCta = {
   title: "Ready to get started?",
-  description: "Join us today and transform your digital presence with our innovative solutions.",
+  description: "Join us!",
   hideCta: false,
   button: {
     text: "Contact Us",
@@ -40,11 +40,11 @@ const currentYear = new Date().getFullYear();
 <footer class={`bg-black text-white pb-small pt-10`}>
   <div class="site-container mx-auto px-4">
 
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 border-b border-background-light">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-8 pl-8 border-b border-background-light">
       <div class="col-span-1">
         <Logo variant="footer" />
         <p class="mt-4 text-white">
-          Advancing healthcare through novel physiology research and engineering.
+          Translating the physiology of organ failure into life-saving technology.
         </p>
       </div>
       
