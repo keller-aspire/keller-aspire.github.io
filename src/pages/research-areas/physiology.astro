@@ -1,0 +1,93 @@
+---
+import Layout from '@layouts/Layout.astro';
+import InnerHero from '@components/sections/InnerHero.astro';
+import heroImage from '@assets/images/home/default-hero.jpg';
+import Figure1 from '../../assets/images/Figure1.png';
+import Cytocam from '../../assets/images/cytocam.png';
+
+const heroContent = {
+  title: 'Computational Physiology and Data-Driven Medicine',
+  backgroundImage: heroImage,
+  description: 'Defining Physiologic State Through Modeling and Intelligent Systems',
+  overlayOpacity: 0.8,
+};
+---
+
+<Layout title="Computational Physiology and Data-Driven Medicine" description="Research area: Computational Physiology and Data-Driven Medicine">
+  <InnerHero content={heroContent} />
+
+  <section class="py-small">
+    <article class="site-container--small mx-auto px-8 max-w-none prose prose-sm md:prose-base">
+      <p>Modern healthcare generates extraordinary volumes of physiologic data — yet much of it remains underutilized. At ASPIRE, we develop computational and quantitative frameworks that transform complex biological signals into actionable insight.</p>
+
+      <p>Our goal is to define physiologic state with precision: to characterize how organs function in real time, predict how they will respond to therapy, and guide interventions that improve patient outcomes.</p>
+
+      <h3>Quantitative Modeling of Complex Physiologic Systems</h3>
+      <p>Organ function emerges from interacting mechanical, biochemical, and circulatory processes. We build mathematical and computational models that capture these interactions across scales.</p>
+
+      <p>Our modeling efforts include:</p>
+      <ul>
+        <li>Systems-level modeling of lung and cardiopulmonary function</li>
+        <li>Ventilation–perfusion and gas exchange dynamics</li>
+        <li>Hemodynamic–respiratory coupling</li>
+        <li>Multi-compartment and multi-scale physiologic models</li>
+        <li>Integration of experimental and clinical datasets</li>
+      </ul>
+
+      <p>These models allow us to move beyond descriptive metrics toward mechanistic characterization and predictive insight.</p>
+
+      {/* FIRST IMAGE PLACEMENT */}
+      <figure class="my-8 flex flex-col items-center">
+        <img src={Figure1.src} alt="Pulse Physiology" class="max-w-4xl w-full" />
+        <figcaption class="text-gray-600">We use experimental data to validate in silico hemorrhage simulations.</figcaption>
+      </figure>
+
+      <h3>Advanced Analysis of Physiologic Monitoring Data</h3>
+      <p>Healthcare environments generate high-frequency waveform data from ventilators, hemodynamic monitors, and extracorporeal systems. We apply advanced signal processing, machine learning, and statistical modeling to extract clinically meaningful information from these complex streams.</p>
+
+      <p>Our work includes:</p>
+      <ul>
+        <li>High-resolution waveform analysis</li>
+        <li>Detection of early physiologic instability</li>
+        <li>Phenotyping of organ dysfunction</li>
+        <li>Identification of response patterns to therapy</li>
+        <li>Development of predictive and decision-support algorithms</li>
+      </ul>
+
+      <p>Importantly, these tools are designed to extend across healthcare domains — from critical illness to broader applications in physiologic monitoring and regenerative therapies.</p>
+
+      <h3>AI-Enabled Precision Medicine</h3>
+      <p>Artificial intelligence is most powerful when grounded in physiologic understanding. At ASPIRE, we integrate mechanistic models with machine learning approaches to create hybrid systems that combine interpretability with predictive strength.</p>
+
+      <p>Our objectives include:</p>
+      <ul>
+        <li>Real-time estimation of physiologic state</li>
+        <li>Personalized titration of organ support strategies</li>
+        <li>Prediction of therapeutic response and recovery trajectories</li>
+        <li>Adaptive and intelligent control of device-based therapies</li>
+      </ul>
+
+      <p>By embedding physiologic insight within intelligent systems, we aim to transition from reactive treatment to predictive, precision care.</p>
+
+      <h3>An Integrated Computational Platform</h3>
+      <p>Our computational work is tightly linked to our experimental and engineering research. We integrate:</p>
+      <ul>
+        <li>Data from translational large-animal models</li>
+        <li>Device performance metrics</li>
+        <li>High-frequency clinical monitoring data</li>
+        <li>Mechanistic mathematical models</li>
+      </ul>
+
+      <p>This integrated platform enables rigorous validation, rapid hypothesis testing, and accelerated translation from algorithm development to real-world clinical application.</p>
+
+      {/* SECOND IMAGE PLACEMENT */}
+      <figure class="my-8 flex flex-col items-center">
+        <img src={Cytocam.src} alt="Sublingual perfusion" class="max-w-4xl w-full" />
+        <figcaption class="text-gray-600">Sublingual perfusion analysis with optical flow during hemorrhagic shock</figcaption>
+      </figure>
+
+      <h3>Beyond a Single Clinical Domain</h3>
+      <p>While many applications arise in organ support and acute illness, the computational frameworks developed at ASPIRE are broadly applicable across healthcare. Our approach is designed to scale — enabling data-driven physiologic insight wherever high-resolution monitoring and advanced technologies intersect with patient care.</p>
+    </article>
+  </section>
+</Layout>

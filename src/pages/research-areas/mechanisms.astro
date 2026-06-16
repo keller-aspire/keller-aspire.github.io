@@ -1,0 +1,81 @@
+---
+import Layout from '@layouts/Layout.astro';
+import InnerHero from '@components/sections/InnerHero.astro';
+import heroImage from '@assets/images/home/default-hero.jpg';
+import elisa from '../../assets/images/elisa.jpg';
+
+const heroContent = {
+  title: 'Mechanisms of Organ Failure and Physiologic Stress',
+  backgroundImage: heroImage,
+  description: 'Understanding How Organs Fail — and How They Recover',
+  overlayOpacity: 0.8,
+};
+---
+
+<Layout title="Mechanisms of Organ Failure and Physiologic Stress" description="Research area: Mechanisms of Organ Failure and Physiologic Stress">
+  <InnerHero content={heroContent} />
+
+  <section class="py-small">
+    <article class="site-container--small mx-auto px-8 max-w-none prose prose-sm md:prose-base">
+      <p>Organ failure is not a binary event, but a dynamic systems process shaped by mechanical stress, inflammation, metabolic demand, vascular regulation, and multi-organ interactions. At ASPIRE, we investigate the mechanisms that govern physiologic decompensation and recovery across organ systems, with particular emphasis on cardiopulmonary failure.</p>
+
+      <p>Our goal is to define the physiologic state of failing organs — quantitatively, mechanistically, and dynamically — so that therapies can be designed to restore function rather than simply compensate for loss.</p>
+
+      <h3>Systems-Level Physiology of Organ Dysfunction</h3>
+      <p>We study how organs respond to acute and chronic stress using integrative, translational models that allow controlled perturbation and high-resolution physiologic measurement. Rather than focusing on isolated pathways, we examine how mechanical forces, gas exchange, hemodynamics, and inflammatory signaling interact to drive dysfunction.</p>
+
+      <p>Key areas of investigation include:</p>
+      <ul>
+        <li>Mechanisms of lung injury and impaired gas exchange</li>
+        <li>Cardiopulmonary coupling during physiologic stress</li>
+        <li>Multi-organ interactions in states of shock and respiratory failure</li>
+        <li>The propagation of mechanical and inflammatory injury</li>
+        <li>Physiologic determinants of recovery versus progressive failure</li>
+      </ul>
+
+      <p>This systems-based perspective allows us to move beyond descriptive classifications toward mechanistic characterization.</p>
+
+      <h3>Translational Experimental Platforms</h3>
+      <p>A central strength of our laboratory is the use of translational large-animal models that enable precise physiologic control and continuous measurement under clinically relevant conditions. These platforms allow us to:</p>
+
+      <ul>
+        <li>Reproduce clinically meaningful patterns of organ failure</li>
+        <li>Apply controlled mechanical and metabolic perturbations</li>
+        <li>Measure high-fidelity hemodynamic and respiratory variables</li>
+        <li>Test mechanistically informed interventions</li>
+      </ul>
+
+      <p>By integrating experimental control with clinical realism, we generate data that bridge laboratory discovery and bedside application.</p>
+
+      <h3>Quantifying Physiologic Stress</h3>
+      <p>Organ failure emerges from imbalance — between demand and supply, injury and repair, stress and compensation. We seek to quantify these imbalances through advanced physiologic measurement and modeling.</p>
+
+      <p>Our work aims to:</p>
+      <ul>
+        <li>Characterize physiologic stress thresholds</li>
+        <li>Define compensatory reserve and decompensation dynamics</li>
+        <li>Identify early markers of instability</li>
+        <li>Distinguish reversible dysfunction from irreversible injury</li>
+      </ul>
+
+      <p>Through quantitative characterization of physiologic state, we lay the foundation for smarter, earlier, and more targeted interventions.</p>
+
+      {/* IMAGE PLACEMENT - You can move this figure block anywhere in the content */}
+      <figure class="my-8 flex flex-col items-center">
+        <img src={elisa.src} alt="ELISA analysis" class="max-w-4xl w-full" />
+        <figcaption class="text-gray-600">ELISA analysis to detect injury markers</figcaption>
+      </figure>
+
+      <h3>From Mechanism to Intervention</h3>
+      <p>Understanding mechanisms is not an end in itself. The insights generated in this research pillar directly inform:</p>
+      <ul>
+        <li>Engineering strategies for organ support</li>
+        <li>Optimization of device–organ interactions</li>
+        <li>Development of predictive computational models</li>
+        <li>Data-driven personalization of therapy</li>
+      </ul>
+
+      <p>By grounding innovation in mechanistic physiology, we aim to improve both the safety and effectiveness of emerging technologies and clinical strategies.</p>
+    </article>
+  </section>
+</Layout>

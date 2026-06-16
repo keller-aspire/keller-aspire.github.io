@@ -1,0 +1,83 @@
+---
+import Layout from '@layouts/Layout.astro';
+import InnerHero from '@components/sections/InnerHero.astro';
+import heroImage from '@assets/images/home/default-hero.jpg';
+import pumps from '../../assets/images/pumps.jpeg';
+import vitalsMonitor from '../../assets/images/vitals_monitor.jpg';
+
+const heroContent = {
+  title: 'Engineering and Optimization of Organ Support Technologies',
+  backgroundImage: heroImage,
+  description: 'Designing Smarter Systems to Restore Organ Function',
+  overlayOpacity: 0.8,
+};
+---
+
+<Layout title="Engineering and Optimization of Organ Support Technologies" description="Research area: Engineering and Optimization of Organ Support Technologies">
+  <InnerHero content={heroContent} />
+
+  <section class="py-small">
+    <article class="site-container--small mx-auto px-8 max-w-none prose prose-sm md:prose-base">
+      <p>When organs fail, technology becomes a bridge between injury and recovery. At ASPIRE, we engineer, evaluate, and optimize advanced organ support technologies with a singular goal: to restore physiologic function while minimizing unintended harm.</p>
+
+      <p>Our approach integrates systems physiology, translational experimentation, and quantitative analysis to rigorously define how devices interact with the body — and how those interactions can be improved.</p>
+
+      {/* FIRST IMAGE PLACEMENT */}
+      <figure class="my-8 flex flex-col items-center">
+        <img src={pumps.src} alt="Automated Pumps" class="max-w-4xl w-full" />
+        <figcaption class="text-gray-600">Automated titration pumps</figcaption>
+      </figure>
+
+      {/* SECOND IMAGE PLACEMENT */}
+      <figure class="my-8 flex flex-col items-center">
+        <img src={vitalsMonitor.src} alt="Automated Resuscitation Vitals Monitor" class="max-w-4xl w-full" />
+        <figcaption class="text-gray-600">Monitoring for automated resuscitation system</figcaption>
+      </figure>
+
+      <h3>The Device–Organ Interface</h3>
+      <p>Organ support technologies do not function in isolation. They alter pressure, flow, gas exchange, inflammation, and metabolic balance. Understanding this dynamic interface is essential for improving performance and safety.</p>
+
+      <p>We investigate:</p>
+      <ul>
+        <li>Hemodynamic and respiratory interactions during mechanical support</li>
+        <li>Mechanical unloading and its physiologic consequences</li>
+        <li>Gas exchange optimization in extracorporeal systems</li>
+        <li>Device-induced inflammatory and vascular responses</li>
+        <li>Multi-organ effects of advanced support strategies</li>
+      </ul>
+
+      <p>Our work includes technologies such as Extracorporeal membrane oxygenation and Extracorporeal carbon dioxide removal, as well as emerging device-based and regenerative platforms.</p>
+
+      <h3>Translational Evaluation and Optimization</h3>
+      <p>A defining feature of ASPIRE is the ability to evaluate organ support systems within controlled, physiologically rich experimental environments.</p>
+
+      <p>Using high-resolution monitoring and integrative modeling, we:</p>
+      <ul>
+        <li>Quantify device performance under clinically relevant conditions</li>
+        <li>Identify physiologic targets for optimization</li>
+        <li>Evaluate trade-offs between support intensity and tissue injury</li>
+        <li>Test novel control strategies and support paradigms</li>
+      </ul>
+
+      <p>This translational framework enables us to move beyond empirical adjustments toward mechanistically informed optimization.</p>
+
+      <h3>Toward Intelligent and Adaptive Support</h3>
+      <p>The future of organ support lies in systems that respond dynamically to patient state. We are developing approaches that integrate engineering design with real-time physiologic data and computational modeling to create more responsive and adaptive support strategies.</p>
+
+      <p>Our goals include:</p>
+      <ul>
+        <li>State-guided titration of support intensity</li>
+        <li>Integration of predictive modeling into device control</li>
+        <li>Personalized optimization based on physiologic phenotype</li>
+        <li>Development of next-generation regenerative and hybrid support systems</li>
+      </ul>
+
+      <p>By embedding physiologic insight into engineering design, we aim to advance technologies that are not only more effective, but safer and more patient-centered.</p>
+
+      <h3>From Innovation to Impact</h3>
+      <p>Engineering innovation must translate to clinical benefit. Through interdisciplinary collaboration with clinicians, engineers, and industry partners, we work to accelerate the development of advanced organ support systems from concept to clinical application.</p>
+
+      <p>By combining mechanistic understanding with engineering rigor, ASPIRE seeks to redefine how technology supports organ recovery and improves patient outcomes.</p>
+    </article>
+  </section>
+</Layout>
