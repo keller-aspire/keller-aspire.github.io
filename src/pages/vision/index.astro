@@ -3,6 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import { getCollection, getEntry, render } from 'astro:content';
 import InnerHero from '../../components/sections/InnerHero.astro';
 import heroImage from '../../assets/images/home/default-hero.jpg';
+import ecmoVideo from '../../assets/images/videos/ecmo.mp4';
 
 // Get vision markdown files using getEntry
 const p1Entry = await getEntry('vision', 'p1');
@@ -23,18 +24,32 @@ const heroContent = {
 <Layout title="Our Vision">
     <InnerHero content={heroContent} />
 
-    <section class="py-small">
+    <section class="py-8">
         <article class="site-container--small mx-auto px-8">
             <P1Content />
         </article>
     </section>
 
-    {/* You can add other sections here between markdown content */}
-    {/* Example:
-    <SomeOtherSection />
-    */}
+    <section class="py-2">
+        <div class="site-container--small mx-auto px-8">
+            <figure class="flex flex-col items-center">
+                <video 
+                    width="100%" 
+                    height="auto" 
+                    controls 
+                    class="max-w-4xl"
+                >
+                    <source src={ecmoVideo} type="video/mp4" />
+                    Your browser does not support the video tag.
+                </video>
+                <figcaption class="text-gray-600">
+                    ECMO Circuit in Action
+                </figcaption>
+            </figure>
+        </div>
+    </section>
 
-    <section class="py-small">
+    <section class="py-8">
         <article class="site-container--small mx-auto px-8">
             <P2Content />
         </article>

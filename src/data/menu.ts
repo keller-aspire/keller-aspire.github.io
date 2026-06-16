@@ -12,7 +12,7 @@ export const headerMenu = [
         children: [
             { name: 'Our Vision', link: '/vision' },
             { name: 'Our Team', link: '/team' },
-            { name: 'Steve Keller', link: '/team/stevekeller' },
+            { name: 'Steve Keller', link: '/steve-keller' },
         ]
     },
     { name: 'Research', link: '/research-areas', showArrow: false,

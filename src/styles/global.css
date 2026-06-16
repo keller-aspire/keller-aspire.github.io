@@ -606,8 +606,8 @@ button a:hover {
 figure {
     position: relative;
     display: block;
-    width: 100%;
-    max-width: 600px;
+    width: 80%;
+    /*max-width: 600px;*/
     margin: 2rem auto;
 }
 

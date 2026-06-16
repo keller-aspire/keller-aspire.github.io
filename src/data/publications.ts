@@ -1,8 +1,8 @@
-import styleGuideImage from '../assets/images/home/developer.jpg';
+import featured1 from '../assets/images/mingfeng_paper_fig.jpg';
 
 export interface Author {
     name: string;
-    institution?: string;
+    //institution?: string;
 }
 
 export interface FeaturedPublication {
@@ -44,19 +44,19 @@ export const publications: PublicationCategory[] = [
         publications: [
             {
                 type: 'featured',
-                headline: 'Publication Title 1',
-                description: 'This is where a summary of the abstract would go.',
+                headline: 'Exploring the Association Between Early PaCO2 Correction Speed and Cerebrovascular Autoregulation in a Porcine Model of Extracorporeal Resuscitation',
+                description: 'In this experimental ECPR model, faster early PaCO2 correction was associated with impaired CVAR (higher PRx values). Controlled CO2 correction should be considered a key neuroprotective strategy during ECMO initiation.',
                 authors: [
-                    { name: 'Author One', institution: 'Institution' },
-                    { name: 'Author Two', institution: 'Institution' },
+                    { name: 'Mingfeng Cao'},
+                    { name: 'Et al.'},
                 ],
                 link: {
-                    text: 'https://doi.org/10.1016/j.device.2024.100514',
-                    url: 'https://www.sciencedirect.com/science/article/pii/S2666998624004149?via%3Dihub',
+                    text: 'https://doi.org/10.1007/s12975-025-01376-8',
+                    url: 'https://doi.org/10.1007/s12975-025-01376-8',
                 },
                 image: {
-                    src: styleGuideImage,
-                    alt: 'Publication Image',
+                    src: featured1,
+                    alt: 'Neuronal Injury Areas',
                 },
                 year: 2024,
             },

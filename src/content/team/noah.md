@@ -6,7 +6,7 @@ altImg: "./images/noah2.jpg"
 jobTitle: "Research Specialist"
 undergrad: "Brown University (2024)"
 publish: true
-order: 10
+order: 13
 linkedin: "https://www.linkedin.com/in/noah-ehrhardt-9a77a01b2/"
 linkedinUsername: "noahehrhardt"
 hobbies: "Hockey, baking, volleyball, guitar"
