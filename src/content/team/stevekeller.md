@@ -1,6 +1,6 @@
 ---
 name: "Steve Keller"
-category: "PI"
+category: "Current"
 headshot: "./images/steve1.jpg"
 altImg: "./images/grace.jpg"
 degree: "MD, PhD"
@@ -13,6 +13,7 @@ publish: true
 order: 1
 email: "steven.keller@jhmi.edu"
 hasPage: true
+researchInterests: "ECMO, critical care"
 ---
 
 ## About Steve Keller
