@@ -18,19 +18,44 @@ const sortedAreas = areaEntries.sort((a, b) => {
   return order.indexOf(a.id) - order.indexOf(b.id);
 });
 
-// Create carousel slides from research areas
-const carouselSlides = sortedAreas.map((area, index) => ({
-  title: area.data.title,
-  description: area.data.subtitle || `Explore our research in ${area.data.title}`,
-  image: [pipetteImage, ianLungImage, lung3dImage][index % 3],
-  buttons: [
+const carouselSlides = [
     {
-      text: 'Learn More',
-      link: `/research-areas/${area.id}`,
-      variant: 'primary',
+        title: "Mechanisms of Organ Failure",
+        description: "Understanding How Organs Fail — and How They Recover",
+        image: pipetteImage,
+        buttons: [
+            {
+                text: "Learn More",
+                link: "/research-areas/mechanisms",
+                variant: "primary" as const
+            }
+        ]
+    },
+    {
+        title: "Organ Support Technologies",
+        description: "Designing Smarter Systems to Restore Organ Function",
+        image: ianLungImage,
+        buttons: [
+            {
+                text: "Learn More",
+                link: "/research-areas/support",
+                variant: "primary" as const
+            }
+        ]
+    },
+    {
+        title: "Computational Physiology",
+        description: "Defining Physiologic State Through Modeling and Intelligent Systems",
+        image: lung3dImage,
+        buttons: [
+            {
+                text: "Learn More",
+                link: "/research-areas/physiology",
+                variant: "primary" as const
+            }
+        ]
     }
-  ]
-}));
+];
 
 // Hero content
 const heroContent = {
