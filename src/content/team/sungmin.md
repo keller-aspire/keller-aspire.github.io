@@ -2,7 +2,6 @@
 name: "Sung-Min Cho"
 category: "Current"
 headshot: "./images/sungmin1.jpg"
-altImg: "./images/grace.jpg"
 jobTitle: "Physician"
 degree: "DO, MHS."
 medschool: "Ohio University"

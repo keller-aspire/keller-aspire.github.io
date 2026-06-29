@@ -18,16 +18,27 @@ const { entry } = Astro.props;
                 return (
                     <div class="w-full mb-6 border-4 border-primary-dark group overflow-hidden mx-auto max-w-[220px] sm:max-w-[240px] md:max-w-[260px] lg:max-w-[280px]">
                         <div class="relative w-full aspect-[3/4]">
-                            <Image
-                                class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 ease-in-out translate-x-0 group-hover:-translate-x-full z-10"
-                                src={entry.data.headshot}
-                                alt={entry.data.name}
-                                width={896}
-                                height={1280}
-                                quality={80}
-                                format="webp"
-                            />
+                            {!altImg && (
+                                <Image
+                                    class="absolute inset-0 w-full h-full object-cover z-10"
+                                    src={entry.data.headshot}
+                                    alt={entry.data.name}
+                                    width={896}
+                                    height={1280}
+                                    quality={80}
+                                    format="webp"
+                                />
+                            )}
                             {altImg && (
+                                <Image
+                                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 ease-in-out translate-x-0 group-hover:-translate-x-full z-10"
+                                    src={entry.data.headshot}
+                                    alt={entry.data.name}
+                                    width={896}
+                                    height={1280}
+                                    quality={80}
+                                    format="webp"
+                                />
                                 <Image
                                     class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 ease-in-out translate-x-full group-hover:translate-x-0 z-20"
                                     src={altImg}

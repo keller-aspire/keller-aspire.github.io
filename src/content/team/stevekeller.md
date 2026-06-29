@@ -2,7 +2,6 @@
 name: "Steve Keller"
 category: "Current"
 headshot: "./images/steve1.jpg"
-altImg: "./images/grace.jpg"
 degree: "MD, PhD"
 medschool: "MD, Stanford"
 phd: "PhD, MIT"

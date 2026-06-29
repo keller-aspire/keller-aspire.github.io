@@ -2,7 +2,6 @@
 name: "Mingfeng Cao"
 category: "Current"
 headshot: "./images/mingfeng1.jpg"
-altImg: "./images/grace.jpg"
 jobTitle: "PhD Candidate"
 undergrad: "Duke Kunshan University (2022)"
 grad: "Johns Hopkins (2024)"

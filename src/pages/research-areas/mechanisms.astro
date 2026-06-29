@@ -2,6 +2,7 @@
 import Layout from '@layouts/Layout.astro';
 import InnerHero from '@components/sections/InnerHero.astro';
 import heroImage from '@assets/images/home/default-hero.jpg';
+import Cytocam from '../../assets/images/cytocam.png';
 import elisa from '../../assets/images/elisa.jpg';
 
 const heroContent = {
@@ -34,6 +35,12 @@ const heroContent = {
       </ul>
 
       <p>This systems-based perspective allows us to move beyond descriptive classifications toward mechanistic characterization.</p>
+
+      {/* SECOND IMAGE PLACEMENT */}
+      <figure class="my-8 flex flex-col items-center">
+        <img src={Cytocam.src} alt="Sublingual perfusion" class="max-w-4xl w-full" />
+        <figcaption class="text-gray-600">Sublingual perfusion analysis with optical flow during hemorrhagic shock</figcaption>
+      </figure>
 
       <h3>Translational Experimental Platforms</h3>
       <p>A central strength of our laboratory is the use of translational large-animal models that enable precise physiologic control and continuous measurement under clinically relevant conditions. These platforms allow us to:</p>
