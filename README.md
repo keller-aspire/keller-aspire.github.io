@@ -21,6 +21,36 @@ npm run dev
 Ctrl + C (to exit)
 ```
 
+### How to Edit Each Page:
+
+The following instructions start at the `src` folder:
+
+- Menu: `data/menu.ts`
+- Header and footer: `components/Header.astro`, `/Footer.astro`
+- Home page: `pages/index.astro`
+- Images (except for headshots): `assets/images`
+- Vision:
+  - Paragraph content: `content/vision/p1.md` for first paragraph, `p2.md` for second
+  - Video and page setup: `pages/vision/index.astro`
+- Publications:
+  - Publication list: `data/publications.ts`
+  - Page setup: `pages/publications/index.astro`
+- Research: `pages/research-areas`
+  - Home page is `index.astro`, and the other Astro files correspond to research areas
+- Contact:
+  - Page setup: `pages/contact/index.astro`
+  - Contact info: `data/config.ts`
+  - Section with contact info: `components/sections/ContactInfo.astro`
+  - Contact form: `components/forms/Contact.astro`
+- Team:
+  - Page setup (choose which team member categories to display): `pages/team/index.astro`
+  - Team grid: `components/sections/TeamGrid.astro`
+  - Team member profile on individual page: `components/team/DesktopProfile.astro` and `MobileProfile.astro`
+    - If you are making a change to `TeamGrid.astro`, `DesktopProfile.astro`, or `MobileProfile.astro`, you probably want to make that change on all three files.
+  - Team member bios: `content/team`
+    - Profile and alt pictures: `content/team/images`
+  - Steve page accessible from the menu: `pages/steve-keller/index.astro`
+
 Push changes to main to update on live site
 
 ## 📁 Project Structure
