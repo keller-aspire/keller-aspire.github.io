@@ -1,17 +1,19 @@
 ---
 name: "Yousra Ahmed"
 category: "Current"
-degree: "MD"
+degree: "MBBS"
 headshot: "./images/yousra1.jpeg"
+altImg: "./images/yousra2.jpeg"
 jobTitle: "Postdoc"
 publish: true
 order: 7
 hasPage: true
-hobbies: "Bullying Ian Woodward"
-researchInterests: "Hemorrhagic shock, Extracorporeal life support"
+email: "yousrahmed.d@gmail.com"
+linkedin: "https://www.linkedin.com/in/yousra-ahmed-021244255"
+linkedinUsername: "yousra-ahmed"
+hobbies: "Ballet, knitting, hiking, and bullying Ian Woodward"
+researchInterests: "Autonomous closed-loop resuscitation for hemorrhagic shock, emergency medicine, trauma surgery, and operational medicine"
 ---
 
-## About Dr. Madison (Maddy) Malfitano
-Maddy Malfitano is currently a fourth year general surgery resident at Medstar Georgetown and Washington Hospital Center. He is currently pursuing a two year post-doctoral research fellowship in the ASPIRE lab. Clinically, he is broadly interested in cardiothoracic surgery, with an intended future focus in minimally invasive thoracic surgery and thoracic oncology. He joined the ASPIRE lab because of the unique opportunity to perform translational research on extracorporeal life support during disease states like hemorrhagic shock, acute lung injury, and cardiac arrest.
-
-He is originally from Jacksonville, North Carolina and attended The University of North Carolina at Chapel Hill for both my undergraduate and medical education. His ultimate goal is to become a thoracic surgeon scientist and focus in general thoracic surgery and thoracic oncology. Outside of his clinical endeavors, maddy enjoys weight lifting, running, cooking, exploring Washington D.C with his fiancé, and pampering their 15 year old cat Lanie.
+## About Dr. Yousra Ahmed
+Yousra Ahmed earned her MBBCh from Alexandria University in Egypt, where she developed early clinical training in pediatric surgery. She is currently pursuing a research fellowship at ASPIRE Lab, conducting translational research focused on validating physiology-driven, autonomous closed-loop resuscitation systems for hemorrhagic shock, with a special emphasis on field-deployable technologies for austere and resource-limited settings. Her clinical interests include emergency medicine, trauma surgery, and operational medicine. Her broader research experience includes biomedical-device validation and diagnostic technologies for cancer detection in rural settings.
